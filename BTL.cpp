@@ -383,6 +383,8 @@ int main() {
             }
             case 6: {
                 sapXepTheoTen(danhSachGiaoVien, soLuongGiaoVien);
+                  hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
+
                 break;
             }
             case 7:
