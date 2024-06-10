@@ -457,6 +457,66 @@ int main() {
                 delete[] danhSachGiaoVien;
                 break;
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            case 0:
+            {
+                system("cls");//Clear screen
+                cout << "Ket thuc chuong trinh";
+                break;
+            }
+            default:
+                cout << "Lua chon khong hop le, vui long chon lai.\n";
+                break;
+        }
+    } while (luaChon1 != 0);
     return 0;
 
     
