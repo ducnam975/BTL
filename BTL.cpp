@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <windows.h>
+
 
 using namespace std;
 
@@ -231,181 +233,230 @@ int main() {
     
     GiaoVien *danhSachGiaoVien = new GiaoVien[100];
     int soLuongGiaoVien = 0;
-    int luaChon;
-
-    do {
+    int luaChon1;
+    do
+    {
         cout << "\n=== MENU CHINH ===\n";
         cout << "1. Quan ly hoc sinh\n";
         cout << "2. Quan ly giao vien\n";
-        cout << "3. Thoat\n";
+        cout << "7. Quan ly Tai lieu tai nguyen\n";
+        cout << "8. Quan ly phu huynh\n";
+        cout << "9. Quan ly thong bao / Cuoc goi\n";
+        cout << "0. Thoat\n";
         cout << "Nhap lua chon cua ban: ";
-        cin >> luaChon;
+        cin >> luaChon1;
 
-        switch (luaChon) {
+        //Nhập lựa chọn
+        switch (luaChon1)
+        {
             case 1:
+            {
                 int luaChon;
-    do {cout<<"\n=== MENU QUAN LY HOC SINH =="<<endl;
-        cout << "1. Them Hoc Sinh\n2. Sua Thong Tin Hoc Sinh\n3. Xoa Hoc Sinh\n4. Tim Kiem Hoc Sinh\n5. Sap Xep Danh Sach Hoc Sinh\n0. Quay lai\n";
-        cout << "Nhap lua chon cua ban: ";
-        cin >> luaChon;
-        switch (luaChon) {
-            case 1: {
-                string tenHS;
-                int maSoHS;
-                float diemHS;
-                cout << "Nhap ten hoc sinh: ";
-                cin.ignore();
-                getline(cin, tenHS);
-                cout << "Nhap ma so hoc sinh: ";
-                cin >> maSoHS;
-                cout << "Nhap diem Tong Ket hoc sinh: ";
-                cin >> diemHS;
-                danhSachHocSinh[soLuongHocSinh++] = HocSinh(tenHS, maSoHS, diemHS);
-                break;
-            }
-            case 2: {
-                int maSoHS;
-                cout << "Nhap ma so hoc sinh can sua: ";
-                cin >> maSoHS;
-                int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
-                if (index != -1) {
-                    string tenMoi;
-                    float diemMoi;
-                    cout << "Nhap ten moi cua hoc sinh: ";
-                    cin.ignore();
-                    getline(cin, tenMoi);
-                    cout << "Nhap diem moi cua hoc sinh: ";
-                    cin >> diemMoi;
-                    danhSachHocSinh[index].suaThongTin(tenMoi, diemMoi);
-                    cout << "Thong tin hoc sinh sau khi sua: " << endl;
-                    danhSachHocSinh[index].hienThiThongTin();
-                } else {
-                    cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
-                }
-                break;
-            }
-            case 3: {
-                int maSoHS;
-                cout << "Nhap ma so hoc sinh can xoa: ";
-                cin >> maSoHS;
-                int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
-                if (index != -1) {
-                    for (int i = index; i < soLuongHocSinh - 1; ++i) {
-                        danhSachHocSinh[i] = danhSachHocSinh[i + 1];
+                system("cls");//Clear screen
+                do
+                {
+                    cout<<"\n=== MENU QUAN LY HOC SINH =="<<endl;
+                    cout << "1. Them Hoc Sinh\n2. Sua Thong Tin Hoc Sinh\n3. Xoa Hoc Sinh\n4. Tim Kiem Hoc Sinh\n5. Sap Xep Danh Sach Hoc Sinh\n0. Quay lai\n";
+                    cout << "Nhap lua chon cua ban: ";
+                    cin >> luaChon;
+                    switch (luaChon)
+                    {
+                        case 1:
+                        {
+                            system("cls");//Clear screen
+                            string tenHS;
+                            int maSoHS;
+                            float diemHS;
+                            cout << "Nhap ten hoc sinh: ";
+                            cin.ignore();
+                            getline(cin, tenHS);
+                            cout << "Nhap ma so hoc sinh: ";
+                            cin >> maSoHS;
+                            cout << "Nhap diem Tong Ket hoc sinh: ";
+                            cin >> diemHS;
+                            danhSachHocSinh[soLuongHocSinh++] = HocSinh(tenHS, maSoHS, diemHS);
+                            break;
+                        }
+                        case 2:
+                        {
+                            system("cls");//Clear screen
+                            int maSoHS;
+                            cout << "Nhap ma so hoc sinh can sua: ";
+                            cin >> maSoHS;
+                            int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
+                            if (index != -1)
+                            {
+                                string tenMoi;
+                                float diemMoi;
+                                cout << "Nhap ten moi cua hoc sinh: ";
+                                cin.ignore();
+                                getline(cin, tenMoi);
+                                cout << "Nhap diem moi cua hoc sinh: ";
+                                cin >> diemMoi;
+                                danhSachHocSinh[index].suaThongTin(tenMoi, diemMoi);
+                                cout << "Thong tin hoc sinh sau khi sua: " << endl;
+                                danhSachHocSinh[index].hienThiThongTin();
+                            }
+                            else
+                            {
+                                cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
+                            }
+                            break;
+                        }
+                        case 3:
+                        {
+                            system("cls");//Clear screen
+                            int maSoHS;
+                            cout << "Nhap ma so hoc sinh can xoa: ";
+                            cin >> maSoHS;
+                            int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
+                            if (index != -1)
+                            {
+                                for (int i = index; i < soLuongHocSinh - 1; ++i)
+                                {
+                                    danhSachHocSinh[i] = danhSachHocSinh[i + 1];
+                                }
+                                soLuongHocSinh--;
+                                cout << "Da xoa hoc sinh co ma so " << maSoHS << endl;
+                            }
+                            else
+                            {
+                                cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
+                            }
+                            break;
+                        }
+                        case 4:
+                        {
+                            system("cls");//Clear screen
+                            int maSoHS;
+                            cout << "Nhap ma so hoc sinh can tim: ";
+                            cin >> maSoHS;
+                            int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
+                            if (index != -1)
+                            {
+                                cout << "Thong tin hoc sinh can tim: " << endl;
+                                danhSachHocSinh[index].hienThiThongTin();
+                            }
+                            else
+                            {
+                                cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
+                            }
+                            break;
+                        }
+                        case 5:
+                        {
+                            //system("cls");//Clear screen
+                            sapXepDanhSachHocSinh(danhSachHocSinh, soLuongHocSinh);
+                            cout << "Danh sach hoc sinh sau khi sap xep:" << endl;
+                            for (int i = 0; i < soLuongHocSinh; ++i)
+                            {
+                                danhSachHocSinh[i].hienThiThongTin();
+                            }
+                            break;
+                        }
+                        case 0:
+                        {
+                            system("cls");//Clear screen
+                            cout << "Ket thuc chuong trinh.";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            break;
                     }
-                    soLuongHocSinh--;
-                    cout << "Da xoa hoc sinh co ma so " << maSoHS << endl;
-                } else {
-                    cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
-                }
-                break;
-            }
-            case 4: {
-                int maSoHS;
-                cout << "Nhap ma so hoc sinh can tim: ";
-                cin >> maSoHS;
-                int index = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSoHS);
-                if (index != -1) {
-                    cout << "Thong tin hoc sinh can tim: " << endl;
-                    danhSachHocSinh[index].hienThiThongTin();
-                } else {
-                    cout << "Khong tim thay hoc sinh co ma so " << maSoHS << endl;
-                }
-                break;
-            }
-           case 5:
-                sapXepDanhSachHocSinh(danhSachHocSinh, soLuongHocSinh);
-                cout << "Danh sach hoc sinh sau khi sap xep:" << endl;
-                for (int i = 0; i < soLuongHocSinh; ++i) {
-                    danhSachHocSinh[i].hienThiThongTin();
-                }
-                break;
-            case 0:
-                cout << "Ket thuc chuong trinh.";
-                break;
-            default:
-                cout << "Lua chon khong hop le. Vui long chon lai.";
-                break;
-        }
-    } while (luaChon != 0);
+                } while (luaChon != 0);
 
-    // Giải phóng bộ nhớ sau khi sử dụng
-    delete[] danhSachHocSinh;
+                // Giải phóng bộ nhớ sau khi sử dụng
+                delete[] danhSachHocSinh;
                 break;
+            }
             case 2:
-            
-   
-    do {
-        cout << "\n=== MENU QUAN LY GIAO VIEN ===\n";
-        cout << "1. Them moi giao vien\n";
-        cout << "2. Hien thi danh sach giao vien\n";
-        cout << "3. Sua thong tin giao vien\n";
-        cout << "4. Xoa giao vien\n";
-        cout << "5. Tim kiem giao vien\n";
-        cout << "6. Sap xep danh sach giao vien theo ten\n";
-        cout << "7. Quay lai\n";
-        cout << "Nhap lua chon cua ban: ";
-        cin >> luaChon;
+            {
+                system("cls");//Clear screen
+                int luaChon;
+                do
+                {
+                    cout << "\n=== MENU QUAN LY GIAO VIEN ===\n";
+                    cout << "1. Them moi giao vien\n";
+                    cout << "2. Hien thi danh sach giao vien\n";
+                    cout << "3. Sua thong tin giao vien\n";
+                    cout << "4. Xoa giao vien\n";
+                    cout << "5. Tim kiem giao vien\n";
+                    cout << "6. Sap xep danh sach giao vien theo ten\n";
+                    cout << "0. Quay lai\n";
+                    cout << "Nhap lua chon cua ban: ";
+                    cin >> luaChon;
+                    switch (luaChon)
+                    {
+                        case 1:
+                        {
+                            system("cls");//Clear screen
+                            if (soLuongGiaoVien < 100)
+                            {
+                                themGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
+                            }
+                            else
+                            {
+                                cout << "Danh sach giao vien da day.\n";
+                            }
+                            break;
+                        }
+                        case 2:
+                        {
+                            system("cls");//Clear screen
+                            hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
+                            break;
+                        }
+                        case 3:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanSua;
+                            cout << "Nhap ten giao vien can sua: ";
+                            cin >> tenCanSua;
+                            suaGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanSua);
+                            break;
+                        }
+                        case 4:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanXoa;
+                            cout << "Nhap ten giao vien can xoa: ";
+                            cin >> tenCanXoa;
+                            xoaGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanXoa);
+                            break;
+                        }
+                        case 5:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanTim;
+                            cout << "Nhap ten giao vien can tim: ";
+                            cin >> tenCanTim;
+                            timKiemGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanTim);
+                            break;
+                        }
+                        case 6:
+                        {
+                            system("cls");//Clear screen
+                            sapXepTheoTen(danhSachGiaoVien, soLuongGiaoVien);
+                            hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
+                            break;
+                        }
+                        case 0:
+                        {
+                            system("cls");//Clear screen	
+                            cout << "Ket thuc chuong trinh.";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            break;
+                    }
+                } while (luaChon != 0);
 
-        switch (luaChon) {
-            case 1: {
-                if (soLuongGiaoVien < 100) {
-                    themGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
-                } else {
-                    cout << "Danh sach giao vien da day.\n";
-                }
+                // Giải phóng bộ nhớ sau khi sử dụng
+                delete[] danhSachGiaoVien;
                 break;
             }
-            case 2: {
-                hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
-                break;
-            }
-            case 3: {
-                string tenCanSua;
-                cout << "Nhap ten giao vien can sua: ";
-                cin >> tenCanSua;
-                suaGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanSua);
-                break;
-            }
-            case 4: {
-                string tenCanXoa;
-                cout << "Nhap ten giao vien can xoa: ";
-                cin >> tenCanXoa;
-                xoaGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanXoa);
-                break;
-            }
-            case 5: {
-                string tenCanTim;
-                cout << "Nhap ten giao vien can tim: ";
-                cin >> tenCanTim;
-                timKiemGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanTim);
-                break;
-            }
-            case 6: {
-                sapXepTheoTen(danhSachGiaoVien, soLuongGiaoVien);
-                  hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
-
-                break;
-            }
-            case 7:
-                cout << "Quay lai menu chinh.\n";
-                break;
-            default:
-                cout << "Lua chon khong hop le. Vui long nhap lai.\n";
-        }
-    } while (luaChon != 7);
-
-    
-
-                break;
-            case 3:
-                cout << "Ket thuc chuong trinh.\n";
-                break;
-            default:
-                cout << "Lua chon khong hop le. Vui long nhap lai namdz.\n";
-        }
-    } while (luaChon != 3);
-
     return 0;
 
     
