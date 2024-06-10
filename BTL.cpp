@@ -402,7 +402,7 @@ int main() {
                 cout << "Ket thuc chuong trinh.\n";
                 break;
             default:
-                cout << "Lua chon khong hop le. Vui long nhap lai.\n";
+                cout << "Lua chon khong hop le. Vui long nhap lai namdz.\n";
         }
     } while (luaChon != 3);
 
