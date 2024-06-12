@@ -906,7 +906,6 @@ int main() {
                             break;
                     }
                 } while (luaChon != 0);
-
                 // Giải phóng bộ nhớ sau khi sử dụng
                 delete[] danhsachTaiLieuTaiNguyen;
                 break;
