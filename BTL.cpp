@@ -782,6 +782,24 @@ int main() {
                 delete[] danhSachGiaoVien;
                 break;
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 	    case 7:
             {
                 system("cls");//Clear screen
@@ -1053,25 +1071,6 @@ int main() {
                 } while (luaChon != 0);
                 break;
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             case 0:
             {
                 system("cls");//Clear screen
