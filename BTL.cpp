@@ -174,7 +174,7 @@ void timKiemGiaoVien(const GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, con
         }
     }
     if (!timThay) {
-        cout << "Khong tim thay giao vien co ten " << tenCanTim << ".\n";
+        cout << "Khong tim thay giao vien co ten: " << tenCanTim << ".\n";
     }
 }
 
