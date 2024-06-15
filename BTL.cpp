@@ -552,11 +552,15 @@ public:
 
 int main() {
    
-    HocSinh *danhSachHocSinh = new HocSinh[100];
+    HocSinh *danhSachHocSinh = new HocSinh[1000];
     int soLuongHocSinh = 0;
+    TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen =new TaiLieuTaiNguyen[1000];
+    int soLuongTaiLieuTaiNguyen = 0;
     
+    PhuHuynh *danhsachPhuHuynh = new PhuHuynh[1000];
+    int soLuongPhuHuynh = 0 ;
     
-    GiaoVien *danhSachGiaoVien = new GiaoVien[100];
+    GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
     int soLuongGiaoVien = 0;
     int luaChon1;
     do
