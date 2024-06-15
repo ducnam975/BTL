@@ -159,7 +159,7 @@ void xoaGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien, const string
         soLuongGiaoVien--;
         cout << "Da xoa giao vien " << tenCanXoa << " khoi danh sach.\n";
     } else {
-        cout << "Khong tim thay giao vien co ten " << tenCanXoa << ".\n";
+        cout << "Khong tim thay giao vien co ten: " << tenCanXoa << ".\n";
     }
 }
 
