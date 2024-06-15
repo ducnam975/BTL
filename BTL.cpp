@@ -550,18 +550,25 @@ public:
 };
 
 
-int main() {
+int main()
+{
    
+    //Học sinh
     HocSinh *danhSachHocSinh = new HocSinh[1000];
     int soLuongHocSinh = 0;
-    TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen =new TaiLieuTaiNguyen[1000];
-    int soLuongTaiLieuTaiNguyen = 0;
-    
-    PhuHuynh *danhsachPhuHuynh = new PhuHuynh[1000];
-    int soLuongPhuHuynh = 0 ;
-    
+
+    //Giáo viên
     GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
     int soLuongGiaoVien = 0;
+
+    //Tài liệu tài nguyên
+    TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen = new TaiLieuTaiNguyen[10000];
+    int soLuongTaiLieuTaiNguyen = 0;
+
+    //Phụ huynh
+    PhuHuynh *danhsachPhuHuynh = new PhuHuynh[10000];
+    int soLuongPhuHuynh = 0;
+
     int luaChon1;
     do
     {
