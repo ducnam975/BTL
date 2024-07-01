@@ -309,7 +309,129 @@ void sapXepDanhsachTaiLieuTaiNguyen(TaiLieuTaiNguyen danhsach[], int soLuong)
     }
     cout << "Da sap xep danh sach tai lieu tai nguyen theo ten.\n";
 };
+class LopHoc {
+private:
+    string maLop;
+    string tengv;
+public:
+    // Hàm tạo
+    LopHoc(){
+	}
+    LopHoc(string maLop, string tengv) : maLop(maLop), tengv(tengv) {}
 
+    // Phương thức hiển thị thông tin lop hoc
+    void hienThiThongTin() const {
+        cout << "Ma Lop: " << maLop << ", Ten giao vien chu nhiem: " << tengv << endl;
+    }
+
+    // Getter cho mã lớp
+    string layMa() const {
+        return maLop;
+    }
+
+    // Getter cho tên giáo viên chủ nhiệm
+    string layTen() const {
+        return tengv;
+    }
+
+    // Setter cho tên giáo viên
+    void datTen(const string& tenMoi) {
+        tengv = tenMoi;
+    }
+
+    // Setter cho mã lớp
+    void datMaMoi(const string& maMoi) {
+        maLop = maMoi;
+    }
+};
+
+// Hàm thêm mới giáo viên vào danh sách
+void themLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc) {
+    if (soLuongLopHoc < 100) {
+        string tengv;
+        string maLop;
+        cout << "Nhap ma lop hoc: ";
+        cin >> maLop;
+        cout << "Nhap ten cua giao vien chu nhiem: ";
+        cin >> tengv;
+        danhSachLopHoc[soLuongLopHoc++] = LopHoc(maLop, tengv);
+    } else {
+        cout << "Danh sach lop hoc da day.\n";
+    }
+}
+
+// Hàm hiển thị danh sách lop hoc
+void hienThiDanhSachLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc) {
+    cout << "Danh sach lop hoc:\n";
+    for (int i = 0; i < soLuongLopHoc; ++i) {
+        danhSachLopHoc[i].hienThiThongTin();
+    }
+}
+
+// Hàm sửa thông tin lop hoc
+void suaLopHoc(LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanSua) {
+    for (int i = 0; i < soLuongLopHoc; ++i) {
+        if (danhSachLopHoc[i].layTen() == tenCanSua) {
+            string maMoi,tenMoi;
+            cout << "Nhap ma moi cho lop hoc: ";
+            cin >> maMoi;
+            cout << "Nhap ten moi cho giao vien: ";
+            cin >> tenMoi;
+            danhSachLopHoc[i].datTen(tenMoi);
+            danhSachLopHoc[i].datMaMoi(maMoi);
+            cout << "Thong tin lop hoc da duoc cap nhat.\n";
+            return;
+        }
+    }
+    cout << "Khong tim thay lop hoc co ma tren " << tenCanSua << ".\n";
+}
+
+// Hàm xóa lop hoc khỏi danh sách
+void xoaLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc, const string& tenCanXoa) {
+    int viTriXoa = -1;
+    for (int i = 0; i < soLuongLopHoc; ++i) {
+        if (danhSachLopHoc[i].layTen() == tenCanXoa) {
+            viTriXoa = i;
+            break;
+        }
+    }
+    if (viTriXoa != -1) {
+        for (int i = viTriXoa; i < soLuongLopHoc - 1; ++i) {
+            danhSachLopHoc[i] = danhSachLopHoc[i + 1];
+        }
+        soLuongLopHoc--;
+        cout << "Da xoa lop hoc " << tenCanXoa << " khoi danh sach.\n";
+    } else {
+        cout << "Khong tim thay ma lop: " << tenCanXoa << ".\n";
+    }
+}
+
+// Hàm tìm kiếm lớp học trong danh sách
+void timKiemLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanTim) {
+    bool timThay = false;
+    cout << "Ket qua tim kiem:\n";
+    for (int i = 0; i < soLuongLopHoc; ++i) {
+        if (danhSachLopHoc[i].layTen() == tenCanTim) {
+            danhSachLopHoc[i].hienThiThongTin();
+            timThay = true;
+        }
+    }
+    if (!timThay) {
+        cout << "Khong tim thay lop hoc: " << tenCanTim << ".\n";
+    }
+}
+
+// Hàm sắp xếp danh sách lop hoc theo tên
+void sapXepTheoTen(LopHoc danhSachLopHoc[], int soLuongLopHoc) {
+    for (int i = 0; i < soLuongLopHoc - 1; ++i) {
+        for (int j = i + 1; j < soLuongLopHoc; ++j) {
+            if (danhSachLopHoc[i].layTen() > danhSachLopHoc[j].layTen()) {
+                swap(danhSachLopHoc[i], danhSachLopHoc[j]);
+            }
+        }
+    }
+    cout << "Da sap xep danh sach lop hoc.\n";
+}
 // Khai báo lớp PhuHuynh
 class PhuHuynh
 {
@@ -560,7 +682,9 @@ int main()
     //Giáo viên
     GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
     int soLuongGiaoVien = 0;
-
+    //Lớp học
+    LopHoc *danhSachLopHoc = new LopHoc[1000];
+    int soLuongLopHoc = 0;
     //Tài liệu tài nguyên
     TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen = new TaiLieuTaiNguyen[10000];
     int soLuongTaiLieuTaiNguyen = 0;
