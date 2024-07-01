@@ -917,6 +917,92 @@ int main()
                 delete[] danhSachGiaoVien;
                 break;
             }
+          case 3:
+            {
+                system("cls");//Clear screen
+                int luaChon;
+                do
+                {
+                    cout << "\n=== MENU QUAN LY LOP HOC ===\n";
+                    cout << "1. Them moi lop hoc\n";
+                    cout << "2. Hien thi danh sach lop hoc\n";
+                    cout << "3. Sua thong tin lop hoc\n";
+                    cout << "4. Xoa lop hoc\n";
+                    cout << "5. Tim kiem lop hoc\n";
+                    cout << "6. Sap xep danh sach lop hoc\n";
+                    cout << "0. Quay lai\n";
+                    cout << "Nhap lua chon cua ban: ";
+                    cin >> luaChon;
+                    switch (luaChon)
+                    {
+                        case 1:
+                        {
+                            system("cls");//Clear screen
+                            if (soLuongLopHoc < 100)
+                            {
+                                themLopHoc(danhSachLopHoc, soLuongLopHoc);
+                            }
+                            else
+                            {
+                                cout << "Danh sach lop hoc da day.\n";
+                            }
+                            break;
+                        }
+                        case 2:
+                        {
+                            system("cls");//Clear screen
+                            hienThiDanhSachLopHoc(danhSachLopHoc, soLuongLopHoc);
+                            break;
+                        }
+                        case 3:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanSua;
+                            cout << "Nhap ma lop hoc can sua: ";
+                            cin >> tenCanSua;
+                            suaLopHoc(danhSachLopHoc, soLuongLopHoc, tenCanSua);
+                            break;
+                        }
+                        case 4:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanXoa;
+                            cout << "Nhap ma lop hoc can xoa: ";
+                            cin >> tenCanXoa;
+                            xoaLopHoc(danhSachLopHoc, soLuongLopHoc, tenCanXoa);
+                            break;
+                        }
+                        case 5:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanTim;
+                            cout << "Nhap ma lop hoc can tim: ";
+                            cin >> tenCanTim;
+                            timKiemLopHoc(danhSachLopHoc, soLuongLopHoc, tenCanTim);
+                            break;
+                        }
+                        case 6:
+                        {
+                            system("cls");//Clear screen
+                            sapXepTheoTen(danhSachLopHoc, soLuongLopHoc);
+                            hienThiDanhSachLopHoc(danhSachLopHoc, soLuongLopHoc);
+                            break;
+                        }
+                        case 0:
+                        {
+                            system("cls");//Clear screen
+                            cout << "Quay lai menu chinh.\n";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le. Vui long chon lai.\n";
+                            break;
+                    }
+                } while (luaChon != 0);
+                // Giải phóng bộ nhớ sau khi sử dụng
+                delete[] danhSachLopHoc;
+                break;
+            }
 
 
 
