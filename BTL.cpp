@@ -732,6 +732,8 @@ int main()
         cout << "\n=== MENU CHINH ===\n";
         cout << "1. Quan ly hoc sinh\n";
         cout << "2. Quan ly giao vien\n";
+	cout << "3. Quan ly lop hoc\n";
+        cout << "4. Quan ly diem\n";
         cout << "7. Quan ly Tai lieu tai nguyen\n";
         cout << "8. Quan ly phu huynh\n";
         cout << "9. Quan ly thong bao / Cuoc goi\n";
