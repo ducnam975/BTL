@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
-
+#include<iomanip>
 
 using namespace std;
 
@@ -432,6 +432,67 @@ void sapXepTheoTen(LopHoc danhSachLopHoc[], int soLuongLopHoc) {
     }
     cout << "Da sap xep danh sach lop hoc.\n";
 }
+// Class nhap diem cho hoc sinh
+class Diem {
+private:
+    string hoTen;
+    float diemToan, diemVan, diemAnh;
+    float diemTB;
+    string xepLoai;
+
+public:
+	// Hàm nhập điểm
+    void nhapDiem() {
+        cout << "Nhap ho ten hoc sinh: ";
+        getline(cin, hoTen);
+        cout << "Nhap diem Toan: ";
+        cin >> diemToan;
+        cout << "Nhap diem Van: ";
+        cin >> diemVan;
+        cout << "Nhap diem Anh: ";
+        cin >> diemAnh;
+        cin.ignore();
+        tinhDiemTB();
+        xepLoaiHocLuc();
+    }
+// Hàm tính điểm trung bình
+    void tinhDiemTB() {
+        diemTB = (diemToan + diemVan + diemAnh) / 3;
+    }
+// Hàm xếp loại học lực
+    void xepLoaiHocLuc() {
+        if (diemTB >= 9)
+            xepLoai = "Xuat sac";
+        else if (diemTB >= 8)
+            xepLoai = "Gioi";
+        else if (diemTB >= 7)
+            xepLoai = "Kha";
+        else if (diemTB >= 5)
+            xepLoai = "Trung binh";
+        else
+            xepLoai = "Yeu";
+    }
+// Hàm hiển thị điểm học sinh
+    void hienThiDiem() {
+        cout << left << setw(20) << hoTen
+             << setw(10) << diemToan
+             << setw(10) << diemVan
+             << setw(10) << diemAnh
+             << setw(10) << fixed << setprecision(1) << diemTB
+             << setw(15) << xepLoai << endl;
+    }
+// Hàm sửa điểm 
+    void suaDiem(string mon, float diemMoi) {
+        if (mon == "Toan")
+            diemToan = diemMoi;
+        else if (mon == "Van")
+            diemVan = diemMoi;
+        else if (mon == "Anh")
+            diemAnh = diemMoi;
+        tinhDiemTB();
+        xepLoaiHocLuc();
+    }
+};
 // Khai báo lớp PhuHuynh
 class PhuHuynh
 {
@@ -685,6 +746,9 @@ int main()
     //Lớp học
     LopHoc *danhSachLopHoc = new LopHoc[1000];
     int soLuongLopHoc = 0;
+    // Nhập điểm 
+    int soHocSinh= 0;
+    Diem *dsHocSinh = new Diem[10000];  
     //Tài liệu tài nguyên
     TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen = new TaiLieuTaiNguyen[10000];
     int soLuongTaiLieuTaiNguyen = 0;
@@ -1003,7 +1067,69 @@ int main()
                 delete[] danhSachLopHoc;
                 break;
             }
-
+         case 4: {
+            int luaChon;
+            system("cls");
+            do {
+                cout << "\n=== MENU QUAN LY DIEM ==" << endl;
+                cout << "1. Nhap diem\n2. Sua Diem\n3. Hien thi bang diem\n0. Quay lai\n";
+                cout << "Nhap lua chon cua ban: ";
+                cin >> luaChon;
+                switch (luaChon) {
+                case 1: {
+                    system("cls");
+                    cout << "Nhap so luong hoc sinh: ";
+                    cin >> soHocSinh;
+                    cin.ignore();
+                    dsHocSinh = new Diem[soHocSinh];
+                    for (int i = 0; i < soHocSinh; i++) {
+                        cout << "Nhap thong tin hoc sinh thu " << i + 1 << ":\n";
+                        dsHocSinh[i].nhapDiem();
+                        cout << endl;
+                    }
+                    break;
+                }
+                case 2: {
+                    int indexHocSinh;
+                    cout << "Nhap so thu tu hoc sinh can sua diem (1-" << soHocSinh << "): ";
+                    cin >> indexHocSinh;
+                    indexHocSinh--;
+                    string monSua;
+                    float diemMoi;
+                    cout << "Nhap mon hoc can sua diem: ";
+                    cin >> monSua;
+                    cout << "Nhap diem moi: ";
+                    cin >> diemMoi;
+                    dsHocSinh[indexHocSinh].suaDiem(monSua, diemMoi);
+                    break;
+                }
+                case 3: {
+                    cout << "Bang diem cua hoc sinh la:\n";
+                    cout << left << setw(20) << "Ho ten"
+                         << setw(10) << "Toan"
+                         << setw(10) << "Van"
+                         << setw(10) << "Anh"
+                         << setw(10) << "Diem TB"
+                         << setw(15) << "Xep loai" << endl;
+                    for (int i = 0; i < soHocSinh; i++) {
+                        dsHocSinh[i].hienThiDiem();
+                    }
+                    break;
+                }
+                case 0: {
+                    system("cls");
+                    cout << "Quay lai chuong trinh.";
+                    break;
+                }
+                default:
+                    cout << "Lua chon khong hop le. Vui long chon lai.";
+                    break;
+                }
+            } while (luaChon != 0);
+            // Giải phóng bộ nhớ sau khi sử dụng
+                delete[] dsHocSinh;
+                break;
+            }  
 
 
 
