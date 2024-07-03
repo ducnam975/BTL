@@ -189,39 +189,8 @@ void sapXepTheoTen(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien) {
     }
     cout << "Da sap xep danh sach giao vien theo ten.\n";
 }
-class LopHoc {
-private:
-    string maLop;
-    string giaoVienChuNhiem;
-public:
-    // Hàm tạo
-    LopHoc(string maLop, string giaoVien) : maLop(maLop), giaoVienChuNhiem(giaoVien) {}
 
-    // Phương thức hiển thị thông tin lớp học
-    void hienThongTin() const {
-        cout << "Ma lop: " << maLop << ", Giao vien chu nhiem: " << giaoVienChuNhiem << endl;
-    }
 
-    // Getter cho mã lớp
-    string layMaLop() const {
-        return maLop;
-    }
-
-    // Setter cho mã lớp
-    void datMaLop(const string& maLopMoi) {
-        maLop = maLopMoi;
-    }
-
-    // Getter cho tên giáo viên chủ nhiệm
-    string layGiaoVienChuNhiem() const {
-        return giaoVienChuNhiem;
-    }
-
-    // Setter cho tên giáo viên chủ nhiệm
-    void datGiaoVienChuNhiem(const string& giaoVienMoi) {
-        giaoVienChuNhiem = giaoVienMoi;
-    }
-};
 
 // Khai báo lớp TaiLieuTaiNguyen
 class TaiLieuTaiNguyen
