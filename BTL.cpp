@@ -700,6 +700,131 @@ public:
         }
     }
 };
+class Sukien {
+private:
+    string DateOfSukien;
+    string TenSukien;
+public:
+    // Hàm t?o
+    Sukien(){
+	}
+    Sukien(string DateOfSukien, string TenSukien) : DateOfSukien(DateOfSukien), TenSukien(TenSukien) {}
+
+    // Phuong th?c hi?n th? thông tin su kien
+    void hienThiThongTin() const {
+        cout << "Ngay dien ra su kien(dd/mm/yyyy): " << DateOfSukien << ", Ten su kien: " << TenSukien << endl;
+    }
+
+    // Getter cho ngay dien ra su kien
+    string layMa() const {
+        return DateOfSukien;
+    }
+
+    // Getter cho tên su kien ch? nhi?m
+    string layTen() const {
+        return TenSukien;
+    }
+
+    // Setter cho tên su kien
+    void datTen(const string& tenMoi) {
+        TenSukien = tenMoi;
+    }
+
+    // Setter cho ngay dien ra su kien
+    void datMaMoi(const string& maMoi) {
+        DateOfSukien = maMoi;
+    }
+};
+
+// Hàm thêm m?i su kien vào danh sách
+void themSukien(Sukien listofSukien[], int& Numberofsukien) {
+    if (Numberofsukien < 100) {
+        string TenSukien;
+        string DateOfSukien;
+        cout << "Nhap Ngay dien ra su kien (dd/mm/yyyy): ";
+        cin >> DateOfSukien;
+        cout << "Nhap ten cua su kien: ";
+        cin >> TenSukien;
+        listofSukien[Numberofsukien++] = Sukien(DateOfSukien, TenSukien);
+    } else {
+        cout << "Danh sach su kien da day.\n";
+    }
+}
+
+// Hàm hi?n th? danh sách su kien
+void hienThilistofSukien(const Sukien listofSukien[], int Numberofsukien) {
+    cout << "Danh sach su kien:\n";
+    for (int i = 0; i < Numberofsukien; ++i) {
+        listofSukien[i].hienThiThongTin();
+    }
+}
+
+// Hàm s?a thông tin su kien
+void suaSukien(Sukien listofSukien[], int Numberofsukien, const string& tenCanSua) {
+    for (int i = 0; i < Numberofsukien; ++i) {
+        if (listofSukien[i].layTen() == tenCanSua) {
+            string maMoi,tenMoi;
+            cout << "Nhap ma moi cho su kien: ";
+            cin >> maMoi;
+            cout << "Nhap ten moi cho su kien: ";
+            cin >> tenMoi;
+            listofSukien[i].datTen(tenMoi);
+            listofSukien[i].datMaMoi(maMoi);
+            cout << "Thong tin su kien da duoc cap nhat.\n";
+            return;
+        }
+    }
+    cout << "Khong tim thay su kien co date tren " << tenCanSua << ".\n";
+}
+
+// Hàm xóa su kien kh?i danh sách
+void xoaSukien(Sukien listofSukien[], int& Numberofsukien, const string& tenCanXoa) {
+    int viTriXoa = -1;
+    for (int i = 0; i < Numberofsukien; ++i) {
+        if (listofSukien[i].layTen() == tenCanXoa) {
+            viTriXoa = i;
+            break;
+        }
+    }
+    if (viTriXoa != -1) {
+        for (int i = viTriXoa; i < Numberofsukien - 1; ++i) {
+            listofSukien[i] = listofSukien[i + 1];
+        }
+        Numberofsukien--;
+        cout << "Da xoa su kien " << tenCanXoa << " khoi danh sach.\n";
+    } else {
+        cout << "Khong tim thay Ngay dien ra su kien: " << tenCanXoa << ".\n";
+    }
+}
+
+// Hàm tìm ki?m l?p h?c trong danh sách
+void timKiemSukien(const Sukien listofSukien[], int Numberofsukien, const string& tenCanTim) {
+    bool timThay = false;
+    cout << "Ket qua tim kiem:\n";
+    for (int i = 0; i < Numberofsukien; ++i) {
+        if (listofSukien[i].layTen() == tenCanTim) {
+            listofSukien[i].hienThiThongTin();
+            timThay = true;
+        }
+    }
+    if (!timThay) {
+        cout << "Khong tim thay su kien: " << tenCanTim << ".\n";
+    }
+}
+
+// Hàm s?p x?p danh sách su kien theo tên
+void sapXepTheoTen(Sukien listofSukien[], int Numberofsukien) {
+    for (int i = 0; i < Numberofsukien - 1; ++i) {
+        for (int j = i + 1; j < Numberofsukien; ++j) {
+            if (listofSukien[i].layTen() > listofSukien[j].layTen()) {
+                swap(listofSukien[i], listofSukien[j]);
+            }
+        }
+    }
+    cout << "Da sap xep danh sach su kien.\n";
+}
+
+
 
 
 int main()
@@ -708,6 +833,9 @@ int main()
     //Học sinh
     HocSinh *danhSachHocSinh = new HocSinh[1000];
     int soLuongHocSinh = 0;
+    //Su kien
+    Sukien *listofSukien = new Sukien[1000];
+    int Numberofsukien = 0;
 
     //Giáo viên
     GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
@@ -734,6 +862,7 @@ int main()
         cout << "2. Quan ly giao vien\n";
 	cout << "3. Quan ly lop hoc\n";
         cout << "4. Quan ly diem\n";
+	cout << "6. Quan ly su kien\n";
         cout << "7. Quan ly Tai lieu tai nguyen\n";
         cout << "8. Quan ly phu huynh\n";
         cout << "9. Quan ly thong bao / Cuoc goi\n";
@@ -1104,7 +1233,92 @@ int main()
 
 
 
-
+          case 6:
+            {
+                system("cls");//Clear screen
+                int luaChon;
+                do
+                {
+                    cout << "\n=== MENU QUAN LY su kien ===\n";
+                    cout << "1. Them moi su kien\n";
+                    cout << "2. Hien thi danh sach su kien\n";
+                    cout << "3. Sua thong tin su kien\n";
+                    cout << "4. Xoa su kien\n";
+                    cout << "5. Tim kiem su kien\n";
+                    cout << "6. Sap xep danh sach su kien\n";
+                    cout << "0. Quay lai\n";
+                    cout << "Nhap lua chon cua ban: ";
+                    cin >> luaChon;
+                    switch (luaChon)
+                    {
+                        case 1:
+                        {
+                            system("cls");//Clear screen
+                            if (Numberofsukien < 100)
+                            {
+                                themSukien(listofSukien, Numberofsukien);
+                            }
+                            else
+                            {
+                                cout << "Danh sach su kien da day.\n";
+                            }
+                            break;
+                        }
+                        case 2:
+                        {
+                            system("cls");//Clear screen
+                            hienThilistofSukien(listofSukien, Numberofsukien);
+                            break;
+                        }
+                        case 3:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanSua;
+                            cout << "Nhap Ngay dien ra su kien can sua: ";
+                            cin >> tenCanSua;
+                            suaSukien(listofSukien, Numberofsukien, tenCanSua);
+                            break;
+                        }
+                        case 4:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanXoa;
+                            cout << "Nhap Ngay dien ra su kien can xoa: ";
+                            cin >> tenCanXoa;
+                            xoaSukien(listofSukien, Numberofsukien, tenCanXoa);
+                            break;
+                        }
+                        case 5:
+                        {
+                            system("cls");//Clear screen
+                            string tenCanTim;
+                            cout << "Nhap Ngay dien ra su kien can tim: ";
+                            cin >> tenCanTim;
+                            timKiemSukien(listofSukien, Numberofsukien, tenCanTim);
+                            break;
+                        }
+                        case 6:
+                        {
+                            system("cls");//Clear screen
+                            sapXepTheoTen(listofSukien, Numberofsukien);
+                            hienThilistofSukien(listofSukien, Numberofsukien);
+                            break;
+                        }
+                        case 0:
+                        {
+                            system("cls");//Clear screen
+                            cout << "Quay lai menu chinh.\n";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le. Vui long chon lai.\n";
+                            break;
+                    }
+                } while (luaChon != 0);
+                // Gi?i phóng b? nh? sau khi s? d?ng
+                delete[] listofSukien;
+                break;
+            }
 
 
 
