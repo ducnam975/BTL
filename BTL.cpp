@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
-#include<iomanip>
+#include <iomanip>
 
 using namespace std;
 
@@ -862,10 +862,10 @@ int main()
         cout << "2. Quan ly giao vien\n";
 	cout << "3. Quan ly lop hoc\n";
         cout << "4. Quan ly diem\n";
-	cout << "6. Quan ly su kien\n";
-        cout << "7. Quan ly Tai lieu tai nguyen\n";
-        cout << "8. Quan ly phu huynh\n";
-        cout << "9. Quan ly thong bao / Cuoc goi\n";
+	cout << "5. Quan ly su kien\n";
+        cout << "6. Quan ly Tai lieu tai nguyen\n";
+        cout << "7. Quan ly phu huynh\n";
+        cout << "8. Quan ly thong bao / Cuoc goi\n";
         cout << "0. Thoat\n";
         cout << "Nhap lua chon cua ban: ";
         cin >> luaChon1;
@@ -1230,10 +1230,7 @@ int main()
                 delete[] dsHocSinh;
                 break;
             }  
-
-
-
-          case 6:
+          case 5:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1319,20 +1316,7 @@ int main()
                 delete[] listofSukien;
                 break;
             }
-
-
-
-
-
-
-
-
-
-
-
-
-		
-	    case 7:
+	    case 6:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1460,7 +1444,7 @@ int main()
                 delete[] danhsachTaiLieuTaiNguyen;
                 break;
             }
-            case 8:
+            case 7:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1529,7 +1513,7 @@ int main()
                 delete[] danhsachPhuHuynh;
                 break;
             }
-            case 9:
+            case 8:
             {
                 system("cls");//Clear screen
                 int luaChon;
