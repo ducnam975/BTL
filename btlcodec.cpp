@@ -371,44 +371,48 @@ void suaDiem(struct Diem *d, char *mon, float diemMoi) {
     tinhDiemTB(d);
     xepLoaiHocLuc(d);
 }
-// Hàm khai báo stuct Phuhuynh
- struct {
-    char tenPH[50];
-    char tenHS[50];
+typedef struct {
+    char tenPH[100];
+    char tenHS[100];
     char SDT[20];
 } PhuHuynh;
 
-// Hàm thêm moi phu huynh
+// Hàm hiển thị thông tin phụ huynh
+void hienThiThongTin(const PhuHuynh* ph) {
+    printf("Ten phu huynh: %s, Ten hoc sinh: %s, So dien thoai phu huynh: %s\n", ph->tenPH, ph->tenHS, ph->SDT);
+}
+
+// Hàm thêm mới phụ huynh vào danh sách
 void themPhuHuynh(PhuHuynh danhsachPhuHuynh[], int* soLuongPhuHuynh) {
     if (*soLuongPhuHuynh < 100) {
+        PhuHuynh ph;
         printf("Nhap ten phu huynh: ");
-        fgets(danhsachPhuHuynh[*soLuongPhuHuynh].tenPH, sizeof(danhsachPhuHuynh[*soLuongPhuHuynh].tenPH), stdin);
-        danhsachPhuHuynh[*soLuongPhuHuynh].tenPH[strlen(danhsachPhuHuynh[*soLuongPhuHuynh].tenPH) - 1] = '\0';  
+        fgets(ph.tenPH, sizeof(ph.tenPH), stdin);
+        ph.tenPH[strcspn(ph.tenPH, "\n")] = '\0'; // Loại bỏ ký tự xuống dòng
 
         printf("Nhap ten hoc sinh: ");
-        fgets(danhsachPhuHuynh[*soLuongPhuHuynh].tenHS, sizeof(danhsachPhuHuynh[*soLuongPhuHuynh].tenHS), stdin);
-        danhsachPhuHuynh[*soLuongPhuHuynh].tenHS[strlen(danhsachPhuHuynh[*soLuongPhuHuynh].tenHS) - 1] = '\0'; 
+        fgets(ph.tenHS, sizeof(ph.tenHS), stdin);
+        ph.tenHS[strcspn(ph.tenHS, "\n")] = '\0';
 
         printf("Nhap so dien thoai: ");
-        fgets(danhsachPhuHuynh[*soLuongPhuHuynh].SDT, sizeof(danhsachPhuHuynh[*soLuongPhuHuynh].SDT), stdin);
-        danhsachPhuHuynh[*soLuongPhuHuynh].SDT[strlen(danhsachPhuHuynh[*soLuongPhuHuynh].SDT) - 1] = '\0'; 
+        fgets(ph.SDT, sizeof(ph.SDT), stdin);
+        ph.SDT[strcspn(ph.SDT, "\n")] = '\0';
 
-        (*soLuongPhuHuynh)++;
+        danhsachPhuHuynh[(*soLuongPhuHuynh)++] = ph;
     } else {
         printf("Danh sach phu huynh da day.\n");
     }
 }
 
-// Hàm hiên thi danh sach phu huynh
+// Hàm hiển thị danh sách phụ huynh
 void hienThiDanhsachPhuHuynh(const PhuHuynh danhsachPhuHuynh[], int soLuongPhuHuynh) {
     printf("Danh sach phu huynh:\n");
     for (int i = 0; i < soLuongPhuHuynh; ++i) {
-        printf("Ten phu huynh: %s, Ten hoc sinh: %s, So dien thoai phu huynh: %s\n",
-               danhsachPhuHuynh[i].tenPH, danhsachPhuHuynh[i].tenHS, danhsachPhuHuynh[i].SDT);
+        hienThiThongTin(&danhsachPhuHuynh[i]);
     }
 }
 
-// Hàm xóa phu huynh khoi danh sach
+// Hàm xóa phụ huynh khỏi danh sách
 void xoaPhuHuynh(PhuHuynh danhsachPhuHuynh[], int* soLuongPhuHuynh, const char* tenCanXoa) {
     int viTriXoa = -1;
     for (int i = 0; i < *soLuongPhuHuynh; ++i) {
@@ -428,14 +432,13 @@ void xoaPhuHuynh(PhuHuynh danhsachPhuHuynh[], int* soLuongPhuHuynh, const char* 
     }
 }
 
-// Ham tim kiem phu huynh
+// Hàm tìm kiếm phụ huynh trong danh sách
 void timKiemPhuHuynh(const PhuHuynh danhsachPhuHuynh[], int soLuongPhuHuynh, const char* tenCanTim) {
-    printf("Ket qua tim kiem:\n");
     int timThay = 0;
+    printf("Ket qua tim kiem:\n");
     for (int i = 0; i < soLuongPhuHuynh; ++i) {
         if (strcmp(danhsachPhuHuynh[i].tenPH, tenCanTim) == 0) {
-            printf("Ten phu huynh: %s, Ten hoc sinh: %s, So dien thoai phu huynh: %s\n",
-                   danhsachPhuHuynh[i].tenPH, danhsachPhuHuynh[i].tenHS, danhsachPhuHuynh[i].SDT);
+            hienThiThongTin(&danhsachPhuHuynh[i]);
             timThay = 1;
         }
     }
@@ -444,7 +447,7 @@ void timKiemPhuHuynh(const PhuHuynh danhsachPhuHuynh[], int soLuongPhuHuynh, con
     }
 }
 
-// Ham sap xep phu huynh theo ten
+// Hàm sắp xếp danh sách phụ huynh theo tên phụ huynh
 void sapXepTheoTen(PhuHuynh danhsachPhuHuynh[], int soLuongPhuHuynh) {
     for (int i = 0; i < soLuongPhuHuynh - 1; ++i) {
         for (int j = i + 1; j < soLuongPhuHuynh; ++j) {
@@ -769,7 +772,52 @@ int main() {
     } while (Choice != 7);
 
   
-                
+                 case 8:
+        	do {
+        printf("\nQuan ly phu huynh\n");
+        printf("1. Them phu huynh\n");
+        printf("2. Hien thi danh sach phu huynh\n");
+        printf("3. Xoa phu huynh\n");
+        printf("4. Tim kiem phu huynh\n");
+        printf("5. Sap xep danh sach phu huynh theo ten\n");
+        printf("6. Thoat\n");
+        printf("Nhap lua chon cua ban: ");
+        scanf("%d", &Choice);
+        getchar(); // Loại bỏ ký tự xuống dòng sau khi nhập số
+
+        switch (Choice) {
+            case 1:system("cls");//Clear screen
+                themPhuHuynh(danhsachPhuHuynh, &soLuongPhuHuynh);
+                break;
+            case 2:system("cls");//Clear screen
+                hienThiDanhsachPhuHuynh(danhsachPhuHuynh, soLuongPhuHuynh);
+                break;
+            case 3: {system("cls");//Clear screen
+                char tenCanXoa[100];
+                printf("Nhap ten phu huynh can xoa: ");
+                fgets(tenCanXoa, sizeof(tenCanXoa), stdin);
+                tenCanXoa[strcspn(tenCanXoa, "\n")] = '\0';
+                xoaPhuHuynh(danhsachPhuHuynh, &soLuongPhuHuynh, tenCanXoa);
+                break;
+            }
+            case 4: {system("cls");//Clear screen
+                char tenCanTim[100];
+                printf("Nhap ten phu huynh can tim: ");
+                fgets(tenCanTim, sizeof(tenCanTim), stdin);
+                tenCanTim[strcspn(tenCanTim, "\n")] = '\0';
+                timKiemPhuHuynh(danhsachPhuHuynh, soLuongPhuHuynh, tenCanTim);
+                break;
+            }
+            case 5:system("cls");//Clear screen
+                sapXepTheoTen(danhsachPhuHuynh, soLuongPhuHuynh);
+                break;
+            case 6:system("cls");//Clear screen
+                printf("Thoat chuong trinh.\n");
+                break;
+            default:
+                printf("Lua chon khong hop le. Vui long chon lai.\n");
+        }
+    } while (Choice != 6);
                 
                 
                 
