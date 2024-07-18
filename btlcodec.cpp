@@ -673,6 +673,7 @@ int main() {
                 	
                 	
                while (1) {
+               	int  ma_so;
         printf("\nQuan ly tai lieu\n");
         printf("1. Them tai lieu\n");
         printf("2. Sua tai lieu\n");
@@ -685,6 +686,7 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
+        	char ten[50];
             case 1:system("cls");//Clear screen
                 them_tai_lieu();
                 break;
@@ -718,7 +720,9 @@ int main() {
     
     case 3:
     	do {
-        printf("\ QUAN LY LOP HOC\n");
+    		char tenGV[50];
+
+        printf("\nQUAN LY LOP HOC\n");
         printf("1. Them lop hoc\n");
         printf("2. Sua thong tin lop hoc\n");
         printf("3. Xoa lop hoc\n");
@@ -727,42 +731,42 @@ int main() {
         printf("6. Sap xep lop hoc theo ten\n");
         printf("7. Thoat\n");
         printf("Lua chon cua ban: ");
-        scanf("%d", &luaChon);
+        scanf("%d", &Choice);
 
-        switch (luaChon) {
+        switch (Choice) {
             case 1:system("cls");//Clear screen
-                themLopHoc(danhSach, &soLuong);
+                themLopHoc(danhSachLopHoc, &soLuongLopHoc);
                 break;
             case 2:system("cls");//Clear screen
                 printf("Nhap ten giao vien can sua: ");
                 scanf("%s", tenGV);
-                suaLopHoc(danhSach, soLuong, tenGV);
+                suaLopHoc(danhSachLopHoc, soLuongLopHoc, tenGV);
                 break;
             case 3:system("cls");//Clear screen
                 printf("Nhap ten giao vien can xoa: ");
                 scanf("%s", tenGV);
-                xoaLopHoc(danhSach, &soLuong, tenGV);
+                xoaLopHoc(danhSachLopHoc, &soLuongLopHoc, tenGV);
                 break;
             case 4:system("cls");//Clear screen
-                hienThiDanhSachLopHoc(danhSach, soLuong);
+                hienThiDanhSachLopHoc(danhSachLopHoc, soLuongLopHoc);
                 break;
             case 5:system("cls");//Clear screen
                 printf("Nhap ten giao vien can tim: ");
                 scanf("%s", tenGV);
-                timKiemLopHoc(danhSach, soLuong, tenGV);
+                timKiemLopHoc(danhSachLopHoc, soLuongLopHoc, tenGV);
                 break;
             case 6:system("cls");//Clear screen
-                sapXepTheoTen(danhSach, soLuong);
+                sapXepTheoTen(danhSachLopHoc, soLuongLopHoc);
                 break;
             case 7:system("cls");//Clear screen
                 printf("Ket thuc chuong trinh.\n");
                 break;
-            default:system("cls");//Clear screen
+            default:
                 printf("Lua chon khong hop le.\n");
                 break;
         }
 
-    } while (luaChon != 7);
+    } while (Choice != 7);
 
   
                 
