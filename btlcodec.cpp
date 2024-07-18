@@ -483,9 +483,9 @@ void suaDiem(struct Diem *d, char *mon, float diemMoi)
 //Khai báo struct phụ huynh
 typedef struct
 {
-    char tenPH[1000];
-    char tenHS[1000];
-    char SDT[200200];
+    char tenPH[50];
+    char tenHS[50];
+    char SDT[20];
 } PhuHuynh;
 
 // Hàm hiển thị thông tin phụ huynh
