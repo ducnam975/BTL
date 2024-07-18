@@ -688,6 +688,7 @@ int main()
         printf("3. Quan ly lop hoc\n");
         printf("4. Quan ly tai lieu tai nguyen\n");
         printf("5. Quan ly phu huynh\n");
+        printf("6. Quan ly diem\n");
         printf("0. Thoat\n");
         printf("Lua chon cua ban: ");
         scanf("%d", &choice);
@@ -1066,6 +1067,60 @@ int main()
                     }
                 } while (Choice != 0);
             }
+
+            
+            case 6 :
+            	
+            	while (1) {
+            		struct Diem d;
+            		char mon[100];
+                 float diemMoi;
+        printf("\nQUAN LY DIEM:\n");
+        printf("1. Nhap diem hoc sinh\n");
+        printf("2. Hien thi diem hoc sinh\n");
+        printf("3. Sua diem hoc sinh\n");
+        printf("4. Thoat\n");
+        printf("Chon: ");
+        scanf("%d", &Choice);
+        getchar(); // Loai bo ky tu xuong dong
+
+        switch (Choice) {
+            case 1:system("cls");//Clear screen
+                nhapDiem(&d);
+                break;
+            case 2:system("cls");//Clear screen
+                hienThiDiem(d);
+                break;
+            case 3:system("cls");//Clear screen
+                printf("Nhap mon can sua (Toan/Van/Anh): ");
+                fgets(mon, 10, stdin);
+                mon[strcspn(mon, "\n")] = '\0'; // Loai bo ky tu xuong dong
+                printf("Nhap diem moi: ");
+                scanf("%f", &diemMoi);
+                getchar(); // Loai bo ky tu xuong dong
+                suaDiem(&d, mon, diemMoi);
+                break;
+            case 4: system("cls");//Clear screen
+                return 0;
+            default:
+                printf("Lua chon khong hop le. Vui long chon lai.\n");
+        }
+    }
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
             default:
                 printf("Lua chon khong hop le.\n");
                 break;
