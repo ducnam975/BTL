@@ -522,6 +522,7 @@ void hienThiLienLac(QuanLy *quanLy) {
 
 
 
+
 int main() {
     HocSinh danhSachHocSinh[1000];
     GiaoVien danhSachGiaoVien[1000];
@@ -534,8 +535,7 @@ int main() {
     LopHoc danhSachLopHoc[1000];
     int soLuongLopHoc = 0;
 
-    struct Diem dsDiem[100];
-    int soLuongDiem = 0;
+    
 
     PhuHuynh danhsachPhuHuynh[1000];
     int soLuongPhuHuynh = 0;
@@ -543,11 +543,12 @@ int main() {
     QuanLy quanLy = { .soLuongThongBao = 0, .soLuongLienLac = 0 };
 
     while (1) {
-        printf("\nDanh sach cac muc quan ly cua truong tieu hochoc\n");
+        printf("\nDANH SACH CAC MUC QUAN LY TRUONG TIEU HOC\n");
         printf("1. Quan ly hoc sinh\n");
         printf("2. Quan ly giao vien\n");
         printf("3. Quan ly lop hoc\n");
         printf("6. Quan ly tai lieu tai nguyen\n");
+         printf("8. Quan ly phu huynh\n");
         printf("0. Thoat\n");
         printf("Lua chon cua ban: ");
         scanf("%d", &choice);
@@ -572,11 +573,208 @@ int main() {
                         break;
                     case 1:{
 						system("cls");//Clear screen
-                        if (soLuongHocSinh < 100) {
+                        if (soLuongHocSinh < 1000) {
                             printf("Nhap ten hoc sinh: ");
                             scanf("%s", danhSachHocSinh[soLuongHocSinh].ten);
                             printf("Nhap ma so hoc sinh: ");
-                       huynh\n");
+                            scanf("%d", &danhSachHocSinh[soLuongHocSinh].maSo);
+                            printf("Nhap diem tong ket: ");
+                            scanf("%f", &danhSachHocSinh[soLuongHocSinh].diemTK);
+                            soLuongHocSinh++;
+                        } else {
+                            printf("Danh sach hoc sinh da day.\n");
+                        }
+                        break;}
+                    case 2:{
+						system("cls");//Clear screen
+                        for (int i = 0; i < soLuongHocSinh; i++) {
+                            hienThiThongTin(danhSachHocSinh[i]);
+                        }
+                        break;}
+                    case 3: {
+                    	system("cls");//Clear screen
+                        int maSo;
+                        printf("Nhap ma so hoc sinh can tim: ");
+                        scanf("%d", &maSo);
+                        int viTri = timKiemHocSinh(danhSachHocSinh, soLuongHocSinh, maSo);
+                        if (viTri != -1) {
+                            hienThiThongTin(danhSachHocSinh[viTri]);
+                        } else {
+                            printf("Khong tim thay hoc sinh co ma so %d.\n", maSo);
+                        }
+                        break;
+                    }
+                    case 4:{
+						system("cls");//Clear screen
+                        sapXepDanhSachHocSinh(danhSachHocSinh, soLuongHocSinh);
+                        printf("Da sap xep danh sach hoc sinh theo diem tong ket.\n");
+                        break;}
+                    default:
+                        printf("Lua chon khong hop le.\n");
+                        break;
+                }
+                break;
+            case 2:
+                printf("\nQUAN LY GIAO VIEN\n");
+                printf("1. Them giao vien\n");
+                printf("2. Hien thi danh sach giao vien\n");
+                printf("3. Sua thong tin giao vien\n");
+                printf("4. Xoa giao vien\n");
+                printf("5. Tim kiem giao vien\n");
+                printf("6. Sap xep giao vien theo ten\n");
+                printf("0. Quay lai menu chinh\n");
+                printf("Lua chon cua ban: ");
+                scanf("%d", &Choice);
+
+                switch (Choice) {
+                    case 0:
+                        break;
+                    case 1:{system("cls");//Clear screen
+						
+					
+                        themGiaoVien(danhSachGiaoVien, &soLuongGiaoVien);
+                        break;}
+                    case 2:{
+						system("cls");//Clear screen
+			
+                        hienThiDanhSachGiaoVien(danhSachGiaoVien, soLuongGiaoVien);
+                        break;}
+                    case 3: {
+                    	system("cls");//Clear screen
+                        char tenCanSua[5000];
+                        printf("Nhap ten giao vien can sua: ");
+                        scanf("%s", tenCanSua);
+                        suaGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanSua);
+                        break;
+                    }
+                    case 4: {
+                    	system("cls");//Clear screen
+                        char tenCanXoa[5000];
+                        printf("Nhap ten giao vien can xoa: ");
+                        scanf("%s", tenCanXoa);
+                        xoaGiaoVien(danhSachGiaoVien, &soLuongGiaoVien, tenCanXoa);
+                        break;
+                    }
+                    case 5: {
+                    	system("cls");//Clear screen
+                        char tenCanTim[5000];
+                        printf("Nhap ten giao vien can tim: ");
+                        scanf("%s", tenCanTim);
+                        timKiemGiaoVien(danhSachGiaoVien, soLuongGiaoVien, tenCanTim);
+                        break;
+                    }
+                    case 6:{
+						system("cls");//Clear screen
+                        sapXepTheoTen(danhSachGiaoVien, soLuongGiaoVien);
+                        break;}
+                    default:
+                        printf("Lua chon khong hop le.\n");
+                        break;
+                }
+                break;
+                
+                case 6:
+                	
+                	
+               while (1) {
+               	int  ma_so;
+        printf("\nQUAN LY TAI LIEU\n");
+        printf("1. Them tai lieu\n");
+        printf("2. Sua tai lieu\n");
+        printf("3. Xoa tai lieu\n");
+        printf("4. Hien thi danh sach tai lieu\n");
+        printf("5. Tim kiem tai lieu\n");
+        printf("6. Sap xep tai lieu\n");
+        printf("7. Thoat\n");
+        printf("Lua chon cua ban: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        	char ten[5000];
+            case 1:system("cls");//Clear screen
+                them_tai_lieu();
+                break;
+            case 2:system("cls");//Clear screen
+                printf("Nhap ma so tai lieu can sua: ");
+                scanf("%d", &ma_so);
+                sua_tai_lieu(ma_so);
+                break;
+            case 3:system("cls");//Clear screen
+                printf("Nhap ma so tai lieu can xoa: ");
+                scanf("%d", &ma_so);
+                xoa_tai_lieu(ma_so);
+                break;
+            case 4:system("cls");//Clear screen
+                hien_thi_danh_sach();
+                break;
+            case 5:system("cls");//Clear screen
+                printf("Nhap ten tai lieu can tim: ");
+                scanf(" %[^\n]", ten);
+                tim_kiem_tai_lieu(ten);
+                break;
+            case 6:system("cls");//Clear screen
+                sap_xep_tai_lieu();
+                break;
+            case 7:system("cls");//Clear screen
+                return 0;
+            default:
+                printf("Lua chon khong hop le.\n");
+        }
+    }
+    
+    case 3:
+    	do {
+    		char tenGV[500];
+
+        printf("\nQUAN LY LOP HOC\n");
+        printf("1. Them lop hoc\n");
+        printf("2. Sua thong tin lop hoc\n");
+        printf("3. Xoa lop hoc\n");
+        printf("4. Hien thi danh sach lop hoc\n");
+        printf("5. Tim kiem lop hoc\n");
+        printf("6. Sap xep lop hoc theo ten\n");
+        printf("7. Thoat\n");
+        printf("Lua chon cua ban: ");
+        scanf("%d", &Choice);
+
+        switch (Choice) {
+            case 1:system("cls");//Clear screen
+                themLopHoc(danhSachLopHoc, &soLuongLopHoc);
+                break;
+            case 2:system("cls");//Clear screen
+                printf("Nhap ten giao vien can sua: ");
+                scanf("%s", tenGV);
+                suaLopHoc(danhSachLopHoc, soLuongLopHoc, tenGV);
+                break;
+            case 3:system("cls");//Clear screen
+                printf("Nhap ten giao vien can xoa: ");
+                scanf("%s", tenGV);
+                xoaLopHoc(danhSachLopHoc, &soLuongLopHoc, tenGV);
+                break;
+            case 4:system("cls");//Clear screen
+                hienThiDanhSachLopHoc(danhSachLopHoc, soLuongLopHoc);
+                break;
+            case 5:system("cls");//Clear screen
+                printf("Nhap ten giao vien can tim: ");
+                scanf("%s", tenGV);
+                timKiemLopHoc(danhSachLopHoc, soLuongLopHoc, tenGV);
+                break;
+            case 6:system("cls");//Clear screen
+                sapXepTheoTen(danhSachLopHoc, soLuongLopHoc);
+                break;
+            case 7:system("cls");//Clear screen
+                printf("Ket thuc chuong trinh.\n");
+                break;
+            default:
+                printf("Lua chon khong hop le.\n");
+                break;
+        }
+
+    } while (Choice != 7);
+
+        case 8:
+        	do {
+        printf("\nQUAN LY PHU HUYNH\n");
         printf("1. Them phu huynh\n");
         printf("2. Hien thi danh sach phu huynh\n");
         printf("3. Xoa phu huynh\n");
@@ -666,3 +864,4 @@ int main() {
 
     return 0;
 }
+
