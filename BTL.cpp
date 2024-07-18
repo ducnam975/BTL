@@ -6,48 +6,57 @@
 using namespace std;
 
 // Khai báo lớp HocSinh
-class HocSinh {
+class HocSinh
+{
 private:
     string ten;
     int maSo;
     float diemTK;
 public:
-	HocSinh(){
-	}
+	HocSinh(){}
+
     // Hàm tạo
     HocSinh(string tenHS, int maSoHS, float diemTKHS) : ten(tenHS), maSo(maSoHS), diemTK(diemTKHS) {}
 
     // Phương thức hiển thị thông tin học sinh
-    void hienThiThongTin() const {
+    void hienThiThongTin() const
+    {
         cout << "Ten: " << ten << ", Ma so: " << maSo << ", DiemTK: " << diemTK << endl;
     }
 
     // Getter cho tên học sinh
-    string layTen() const {
+    string layTen() const
+    {
         return ten;
     }
 
     // Getter cho mã số học sinh
-    int layMaSo() const {
+    int layMaSo() const
+    {
         return maSo;
     }
 
     // Getter cho điểm học sinh
-    float layDiem() const {
+    float layDiem() const
+    {
         return diemTK;
     }
 
     // Phương thức sửa thông tin học sinh
-    void suaThongTin(string tenMoi, float diemMoi) {
+    void suaThongTin(string tenMoi, float diemMoi)
+    {
         ten = tenMoi;
         diemTK = diemMoi;
     }
 };
 
 // Hàm tìm kiếm học sinh theo mã số
-int timKiemHocSinh(const HocSinh danhSach[], int soLuong, int maSo) {
-    for (int i = 0; i < soLuong; ++i) {
-        if (danhSach[i].layMaSo() == maSo) {
+int timKiemHocSinh(const HocSinh danhSach[], int soLuong, int maSo)
+{
+    for (int i = 0; i < soLuong; ++i)
+    {
+        if (danhSach[i].layMaSo() == maSo)
+        {
             return i; // Trả về chỉ số của học sinh trong danh sách
         }
     }
@@ -55,10 +64,14 @@ int timKiemHocSinh(const HocSinh danhSach[], int soLuong, int maSo) {
 }
 
 // Hàm sắp xếp danh sách học sinh theo điểm
-void sapXepDanhSachHocSinh(HocSinh danhSach[], int soLuong) {
-    for (int i = 0; i < soLuong - 1; ++i) {
-        for (int j = i + 1; j < soLuong; ++j) {
-            if (danhSach[i].layDiem() < danhSach[j].layDiem()) {
+void sapXepDanhSachHocSinh(HocSinh danhSach[], int soLuong)
+{
+    for (int i = 0; i < soLuong - 1; ++i)
+    {
+        for (int j = i + 1; j < soLuong; ++j)
+        {
+            if (danhSach[i].layDiem() < danhSach[j].layDiem())
+            {
                 swap(danhSach[i], danhSach[j]);
             }
         }
@@ -66,45 +79,53 @@ void sapXepDanhSachHocSinh(HocSinh danhSach[], int soLuong) {
 }
 
 // Khai báo lớp GiaoVien
-class GiaoVien {
+class GiaoVien
+{
 private:
     string ten;
     string monDay;
 public:
+
     // Hàm tạo
-    GiaoVien(){
-	}
+    GiaoVien(){}
     GiaoVien(string tenGV, string monDayGV) : ten(tenGV), monDay(monDayGV) {}
 
     // Phương thức hiển thị thông tin giáo viên
-    void hienThiThongTin() const {
+    void hienThiThongTin() const
+    {
         cout << "Ten: " << ten << ", Mon day: " << monDay << endl;
     }
 
     // Getter cho tên giáo viên
-    string layTen() const {
+    string layTen() const
+    {
         return ten;
     }
 
     // Getter cho môn dạy
-    string layMonDay() const {
+    string layMonDay() const
+    {
         return monDay;
     }
 
     // Setter cho tên giáo viên
-    void datTen(const string& tenMoi) {
+    void datTen(const string& tenMoi)
+    {
         ten = tenMoi;
     }
 
     // Setter cho môn dạy
-    void datMonDay(const string& monDayMoi) {
+    void datMonDay(const string& monDayMoi)
+    {
         monDay = monDayMoi;
     }
 };
 
 // Hàm thêm mới giáo viên vào danh sách
-void themGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien) {
-    if (soLuongGiaoVien < 100) {
+void themGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien)
+{
+    if (soLuongGiaoVien < 100)
+    {
         string ten;
         string monDay;
         cout << "Nhap ten giao vien: ";
@@ -112,23 +133,30 @@ void themGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien) {
         cout << "Nhap mon day cua giao vien: ";
         cin >> monDay;
         danhSachGiaoVien[soLuongGiaoVien++] = GiaoVien(ten, monDay);
-    } else {
+    }
+    else
+    {
         cout << "Danh sach giao vien da day.\n";
     }
 }
 
 // Hàm hiển thị danh sách giáo viên
-void hienThiDanhSachGiaoVien(const GiaoVien danhSachGiaoVien[], int soLuongGiaoVien) {
+void hienThiDanhSachGiaoVien(const GiaoVien danhSachGiaoVien[], int soLuongGiaoVien)
+{
     cout << "Danh sach giao vien:\n";
-    for (int i = 0; i < soLuongGiaoVien; ++i) {
+    for (int i = 0; i < soLuongGiaoVien; ++i)
+    {
         danhSachGiaoVien[i].hienThiThongTin();
     }
 }
 
 // Hàm sửa thông tin giáo viên
-void suaGiaoVien(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, const string& tenCanSua) {
-    for (int i = 0; i < soLuongGiaoVien; ++i) {
-        if (danhSachGiaoVien[i].layTen() == tenCanSua) {
+void suaGiaoVien(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, const string& tenCanSua)
+{
+    for (int i = 0; i < soLuongGiaoVien; ++i)
+    {
+        if (danhSachGiaoVien[i].layTen() == tenCanSua)
+        {
             string tenMoi, monDayMoi;
             cout << "Nhap ten moi cho giao vien: ";
             cin >> tenMoi;
@@ -144,53 +172,66 @@ void suaGiaoVien(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, const string&
 }
 
 // Hàm xóa giáo viên khỏi danh sách
-void xoaGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien, const string& tenCanXoa) {
+void xoaGiaoVien(GiaoVien danhSachGiaoVien[], int& soLuongGiaoVien, const string& tenCanXoa)
+{
     int viTriXoa = -1;
-    for (int i = 0; i < soLuongGiaoVien; ++i) {
-        if (danhSachGiaoVien[i].layTen() == tenCanXoa) {
+    for (int i = 0; i < soLuongGiaoVien; ++i)
+    {
+        if (danhSachGiaoVien[i].layTen() == tenCanXoa)
+        {
             viTriXoa = i;
             break;
         }
     }
-    if (viTriXoa != -1) {
-        for (int i = viTriXoa; i < soLuongGiaoVien - 1; ++i) {
+    if (viTriXoa != -1)
+    {
+        for (int i = viTriXoa; i < soLuongGiaoVien - 1; ++i)
+        {
             danhSachGiaoVien[i] = danhSachGiaoVien[i + 1];
         }
         soLuongGiaoVien--;
         cout << "Da xoa giao vien " << tenCanXoa << " khoi danh sach.\n";
-    } else {
+    }
+    else
+    {
         cout << "Khong tim thay giao vien co ten: " << tenCanXoa << ".\n";
     }
 }
 
 // Hàm tìm kiếm giáo viên trong danh sách
-void timKiemGiaoVien(const GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, const string& tenCanTim) {
+void timKiemGiaoVien(const GiaoVien danhSachGiaoVien[], int soLuongGiaoVien, const string& tenCanTim)
+{
     bool timThay = false;
     cout << "Ket qua tim kiem:\n";
-    for (int i = 0; i < soLuongGiaoVien; ++i) {
-        if (danhSachGiaoVien[i].layTen() == tenCanTim) {
+    for (int i = 0; i < soLuongGiaoVien; ++i)
+    {
+        if (danhSachGiaoVien[i].layTen() == tenCanTim)
+        {
             danhSachGiaoVien[i].hienThiThongTin();
             timThay = true;
         }
     }
-    if (!timThay) {
+    if (!timThay)
+    {
         cout << "Khong tim thay giao vien co ten: " << tenCanTim << ".\n";
     }
 }
 
 // Hàm sắp xếp danh sách giáo viên theo tên
-void sapXepTheoTen(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien) {
-    for (int i = 0; i < soLuongGiaoVien - 1; ++i) {
-        for (int j = i + 1; j < soLuongGiaoVien; ++j) {
-            if (danhSachGiaoVien[i].layTen() > danhSachGiaoVien[j].layTen()) {
+void sapXepTheoTen(GiaoVien danhSachGiaoVien[], int soLuongGiaoVien)
+{
+    for (int i = 0; i < soLuongGiaoVien - 1; ++i)
+    {
+        for (int j = i + 1; j < soLuongGiaoVien; ++j)
+        {
+            if (danhSachGiaoVien[i].layTen() > danhSachGiaoVien[j].layTen())
+            {
                 swap(danhSachGiaoVien[i], danhSachGiaoVien[j]);
             }
         }
     }
     cout << "Da sap xep danh sach giao vien theo ten.\n";
 }
-
-
 
 // Khai báo lớp TaiLieuTaiNguyen
 class TaiLieuTaiNguyen
@@ -201,8 +242,9 @@ private:
     string MonHoc;
     string LopHoc;
 public:
+
     // Hàm tạo
-    TaiLieuTaiNguyen() {}
+    TaiLieuTaiNguyen(){}
     TaiLieuTaiNguyen(string tenTL, int maSoTL, string MonHocTL, string LopHocTL) : ten(tenTL), maSo(maSoTL), MonHoc(MonHocTL), LopHoc(LopHocTL) {}
 
     // Phương thức hiển thị thông tin tài liệu
@@ -278,45 +320,55 @@ void sapXepDanhsachTaiLieuTaiNguyen(TaiLieuTaiNguyen danhsach[], int soLuong)
     }
     cout << "Da sap xep danh sach tai lieu tai nguyen theo ten.\n";
 };
-class LopHoc {
+
+//class Lớp học
+class LopHoc
+{
 private:
     string maLop;
     string tengv;
 public:
+
     // Hàm tạo
-    LopHoc(){
-	}
+    LopHoc(){}
     LopHoc(string maLop, string tengv) : maLop(maLop), tengv(tengv) {}
 
     // Phương thức hiển thị thông tin lop hoc
-    void hienThiThongTin() const {
+    void hienThiThongTin() const
+    {
         cout << "Ma Lop: " << maLop << ", Ten giao vien chu nhiem: " << tengv << endl;
     }
 
     // Getter cho mã lớp
-    string layMa() const {
+    string layMa() const
+    {
         return maLop;
     }
 
     // Getter cho tên giáo viên chủ nhiệm
-    string layTen() const {
+    string layTen() const
+    {
         return tengv;
     }
 
     // Setter cho tên giáo viên
-    void datTen(const string& tenMoi) {
+    void datTen(const string& tenMoi)
+    {
         tengv = tenMoi;
     }
 
     // Setter cho mã lớp
-    void datMaMoi(const string& maMoi) {
+    void datMaMoi(const string& maMoi)
+    {
         maLop = maMoi;
     }
 };
 
 // Hàm thêm mới giáo viên vào danh sách
-void themLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc) {
-    if (soLuongLopHoc < 100) {
+void themLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc)
+{
+    if (soLuongLopHoc < 100)
+    {
         string tengv;
         string maLop;
         cout << "Nhap ma lop hoc: ";
@@ -324,23 +376,30 @@ void themLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc) {
         cout << "Nhap ten cua giao vien chu nhiem: ";
         cin >> tengv;
         danhSachLopHoc[soLuongLopHoc++] = LopHoc(maLop, tengv);
-    } else {
+    }
+    else
+    {
         cout << "Danh sach lop hoc da day.\n";
     }
 }
 
 // Hàm hiển thị danh sách lop hoc
-void hienThiDanhSachLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc) {
+void hienThiDanhSachLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc)
+{
     cout << "Danh sach lop hoc:\n";
-    for (int i = 0; i < soLuongLopHoc; ++i) {
+    for (int i = 0; i < soLuongLopHoc; ++i)
+    {
         danhSachLopHoc[i].hienThiThongTin();
     }
 }
 
 // Hàm sửa thông tin lop hoc
-void suaLopHoc(LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanSua) {
-    for (int i = 0; i < soLuongLopHoc; ++i) {
-        if (danhSachLopHoc[i].layTen() == tenCanSua) {
+void suaLopHoc(LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanSua)
+{
+    for (int i = 0; i < soLuongLopHoc; ++i)
+    {
+        if (danhSachLopHoc[i].layTen() == tenCanSua)
+        {
             string maMoi,tenMoi;
             cout << "Nhap ma moi cho lop hoc: ";
             cin >> maMoi;
@@ -356,62 +415,80 @@ void suaLopHoc(LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanS
 }
 
 // Hàm xóa lop hoc khỏi danh sách
-void xoaLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc, const string& tenCanXoa) {
+void xoaLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc, const string& tenCanXoa)
+{
     int viTriXoa = -1;
-    for (int i = 0; i < soLuongLopHoc; ++i) {
-        if (danhSachLopHoc[i].layTen() == tenCanXoa) {
+    for (int i = 0; i < soLuongLopHoc; ++i)
+    {
+        if (danhSachLopHoc[i].layTen() == tenCanXoa)
+        {
             viTriXoa = i;
             break;
         }
     }
-    if (viTriXoa != -1) {
-        for (int i = viTriXoa; i < soLuongLopHoc - 1; ++i) {
+    if (viTriXoa != -1)
+    {
+        for (int i = viTriXoa; i < soLuongLopHoc - 1; ++i)
+        {
             danhSachLopHoc[i] = danhSachLopHoc[i + 1];
         }
         soLuongLopHoc--;
         cout << "Da xoa lop hoc " << tenCanXoa << " khoi danh sach.\n";
-    } else {
+    }
+    else
+    {
         cout << "Khong tim thay ma lop: " << tenCanXoa << ".\n";
     }
 }
 
 // Hàm tìm kiếm lớp học trong danh sách
-void timKiemLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanTim) {
+void timKiemLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanTim)
+{
     bool timThay = false;
     cout << "Ket qua tim kiem:\n";
-    for (int i = 0; i < soLuongLopHoc; ++i) {
-        if (danhSachLopHoc[i].layTen() == tenCanTim) {
+    for (int i = 0; i < soLuongLopHoc; ++i)
+    {
+        if (danhSachLopHoc[i].layTen() == tenCanTim)
+        {
             danhSachLopHoc[i].hienThiThongTin();
             timThay = true;
         }
     }
-    if (!timThay) {
+    if (!timThay)
+    {
         cout << "Khong tim thay lop hoc: " << tenCanTim << ".\n";
     }
 }
 
 // Hàm sắp xếp danh sách lop hoc theo tên
-void sapXepTheoTen(LopHoc danhSachLopHoc[], int soLuongLopHoc) {
-    for (int i = 0; i < soLuongLopHoc - 1; ++i) {
-        for (int j = i + 1; j < soLuongLopHoc; ++j) {
-            if (danhSachLopHoc[i].layTen() > danhSachLopHoc[j].layTen()) {
+void sapXepTheoTen(LopHoc danhSachLopHoc[], int soLuongLopHoc)
+{
+    for (int i = 0; i < soLuongLopHoc - 1; ++i)
+    {
+        for (int j = i + 1; j < soLuongLopHoc; ++j)
+        {
+            if (danhSachLopHoc[i].layTen() > danhSachLopHoc[j].layTen())
+            {
                 swap(danhSachLopHoc[i], danhSachLopHoc[j]);
             }
         }
     }
     cout << "Da sap xep danh sach lop hoc.\n";
 }
+
 // Class nhap diem cho hoc sinh
-class Diem {
+class Diem
+{
 private:
     string hoTen;
     float diemToan, diemVan, diemAnh;
     float diemTB;
     string xepLoai;
-
 public:
+
 	// Hàm nhập điểm
-    void nhapDiem() {
+    void nhapDiem()
+    {
         cout << "Nhap ho ten hoc sinh: ";
         getline(cin, hoTen);
         cout << "Nhap diem Toan: ";
@@ -425,11 +502,13 @@ public:
         xepLoaiHocLuc();
     }
 // Hàm tính điểm trung bình
-    void tinhDiemTB() {
+    void tinhDiemTB()
+    {
         diemTB = (diemToan + diemVan + diemAnh) / 3;
     }
 // Hàm xếp loại học lực
-    void xepLoaiHocLuc() {
+    void xepLoaiHocLuc()
+    {
         if (diemTB >= 9)
             xepLoai = "Xuat sac";
         else if (diemTB >= 8)
@@ -441,8 +520,10 @@ public:
         else
             xepLoai = "Yeu";
     }
+
 // Hàm hiển thị điểm học sinh
-    void hienThiDiem() {
+    void hienThiDiem()
+    {
         cout << left << setw(20) << hoTen
              << setw(10) << diemToan
              << setw(10) << diemVan
@@ -450,8 +531,9 @@ public:
              << setw(10) << fixed << setprecision(1) << diemTB
              << setw(15) << xepLoai << endl;
     }
-// Hàm sửa điểm 
-    void suaDiem(string mon, float diemMoi) {
+// Hàm sửa điểm
+    void suaDiem(string mon, float diemMoi)
+    {
         if (mon == "Toan")
             diemToan = diemMoi;
         else if (mon == "Van")
@@ -470,6 +552,7 @@ private:
     string tenHS;
     string SDT;
 public:
+
     // Hàm tạo
     PhuHuynh() {}
     PhuHuynh(string tenPHH, string tenHSH, string SDTPH) : tenPH(tenPHH), tenHS(tenHSH), SDT(SDTPH) {}
@@ -643,7 +726,6 @@ private:
     LienLac danhSachLienLac[LIEN_LAC];
     int soLuongThongBao;
     int soLuongLienLac;
-
 public:
     QuanLy() : soLuongThongBao(0), soLuongLienLac(0) {}
 
@@ -700,45 +782,55 @@ public:
         }
     }
 };
-class Sukien {
+
+//Lớp Sự kiện
+class Sukien
+{
 private:
     string DateOfSukien;
     string TenSukien;
 public:
-    // Hàm t?o
-    Sukien(){
-	}
+
+    //Hàm tạo
+    Sukien(){}
     Sukien(string DateOfSukien, string TenSukien) : DateOfSukien(DateOfSukien), TenSukien(TenSukien) {}
 
-    // Phuong th?c hi?n th? thông tin su kien
-    void hienThiThongTin() const {
+    //Phương thức hiển thị thông tin sự kiện
+    void hienThiThongTin() const
+    {
         cout << "Ngay dien ra su kien(dd/mm/yyyy): " << DateOfSukien << ", Ten su kien: " << TenSukien << endl;
     }
 
-    // Getter cho ngay dien ra su kien
-    string layMa() const {
+    //Getter cho ngày diễn ra sự kiện
+    string layMa() const
+    {
         return DateOfSukien;
     }
 
-    // Getter cho tên su kien ch? nhi?m
-    string layTen() const {
+    //Getter cho tên sự kiện
+    string layTen() const
+    {
         return TenSukien;
     }
 
-    // Setter cho tên su kien
-    void datTen(const string& tenMoi) {
+    //Setter cho tên sự kiện
+    void datTen(const string& tenMoi)
+    {
         TenSukien = tenMoi;
     }
 
-    // Setter cho ngay dien ra su kien
-    void datMaMoi(const string& maMoi) {
+    //Setter cho ngày diễn ra sự kiện
+    void datMaMoi(const string& maMoi)
+    {
         DateOfSukien = maMoi;
     }
 };
 
-// Hàm thêm m?i su kien vào danh sách
-void themSukien(Sukien listofSukien[], int& Numberofsukien) {
-    if (Numberofsukien < 100) {
+//Hàm thêm mới sự kiện vào danh sách
+void themSukien(Sukien listofSukien[], int& Numberofsukien)
+{
+    if (Numberofsukien < 100)
+    {
         string TenSukien;
         string DateOfSukien;
         cout << "Nhap Ngay dien ra su kien (dd/mm/yyyy): ";
@@ -746,23 +838,30 @@ void themSukien(Sukien listofSukien[], int& Numberofsukien) {
         cout << "Nhap ten cua su kien: ";
         cin >> TenSukien;
         listofSukien[Numberofsukien++] = Sukien(DateOfSukien, TenSukien);
-    } else {
+    }
+    else
+    {
         cout << "Danh sach su kien da day.\n";
     }
 }
 
-// Hàm hi?n th? danh sách su kien
-void hienThilistofSukien(const Sukien listofSukien[], int Numberofsukien) {
+// Hàm hiển thị danh sách sự kiện
+void hienThilistofSukien(const Sukien listofSukien[], int Numberofsukien)
+{
     cout << "Danh sach su kien:\n";
-    for (int i = 0; i < Numberofsukien; ++i) {
+    for (int i = 0; i < Numberofsukien; ++i)
+    {
         listofSukien[i].hienThiThongTin();
     }
 }
 
-// Hàm s?a thông tin su kien
-void suaSukien(Sukien listofSukien[], int Numberofsukien, const string& tenCanSua) {
-    for (int i = 0; i < Numberofsukien; ++i) {
-        if (listofSukien[i].layTen() == tenCanSua) {
+// Hàm sửa thông tin sự kiện
+void suaSukien(Sukien listofSukien[], int Numberofsukien, const string& tenCanSua)
+{
+    for (int i = 0; i < Numberofsukien; ++i)
+    {
+        if (listofSukien[i].layTen() == tenCanSua)
+        {
             string maMoi,tenMoi;
             cout << "Nhap ma moi cho su kien: ";
             cin >> maMoi;
@@ -777,46 +876,61 @@ void suaSukien(Sukien listofSukien[], int Numberofsukien, const string& tenCanSu
     cout << "Khong tim thay su kien co date tren " << tenCanSua << ".\n";
 }
 
-// Hàm xóa su kien kh?i danh sách
-void xoaSukien(Sukien listofSukien[], int& Numberofsukien, const string& tenCanXoa) {
+// Hàm xóa sự kiện danh sách
+void xoaSukien(Sukien listofSukien[], int& Numberofsukien, const string& tenCanXoa)
+{
     int viTriXoa = -1;
-    for (int i = 0; i < Numberofsukien; ++i) {
-        if (listofSukien[i].layTen() == tenCanXoa) {
+    for (int i = 0; i < Numberofsukien; ++i)
+    {
+        if (listofSukien[i].layTen() == tenCanXoa)
+        {
             viTriXoa = i;
             break;
         }
     }
-    if (viTriXoa != -1) {
-        for (int i = viTriXoa; i < Numberofsukien - 1; ++i) {
+    if (viTriXoa != -1)
+    {
+        for (int i = viTriXoa; i < Numberofsukien - 1; ++i)
+        {
             listofSukien[i] = listofSukien[i + 1];
         }
         Numberofsukien--;
         cout << "Da xoa su kien " << tenCanXoa << " khoi danh sach.\n";
-    } else {
+    }
+    else
+    {
         cout << "Khong tim thay Ngay dien ra su kien: " << tenCanXoa << ".\n";
     }
 }
 
-// Hàm tìm ki?m l?p h?c trong danh sách
-void timKiemSukien(const Sukien listofSukien[], int Numberofsukien, const string& tenCanTim) {
+// Hàm tìm kiếm lớp học trong danh sách
+void timKiemSukien(const Sukien listofSukien[], int Numberofsukien, const string& tenCanTim)
+{
     bool timThay = false;
     cout << "Ket qua tim kiem:\n";
-    for (int i = 0; i < Numberofsukien; ++i) {
-        if (listofSukien[i].layTen() == tenCanTim) {
+    for (int i = 0; i < Numberofsukien; ++i)
+    {
+        if (listofSukien[i].layTen() == tenCanTim)
+        {
             listofSukien[i].hienThiThongTin();
             timThay = true;
         }
     }
-    if (!timThay) {
+    if (!timThay)
+    {
         cout << "Khong tim thay su kien: " << tenCanTim << ".\n";
     }
 }
 
-// Hàm s?p x?p danh sách su kien theo tên
-void sapXepTheoTen(Sukien listofSukien[], int Numberofsukien) {
-    for (int i = 0; i < Numberofsukien - 1; ++i) {
-        for (int j = i + 1; j < Numberofsukien; ++j) {
-            if (listofSukien[i].layTen() > listofSukien[j].layTen()) {
+// Hàm sắp xếp danh sách sự kiện theo tên
+void sapXepTheoTen(Sukien listofSukien[], int Numberofsukien)
+{
+    for (int i = 0; i < Numberofsukien - 1; ++i)
+    {
+        for (int j = i + 1; j < Numberofsukien; ++j)
+        {
+            if (listofSukien[i].layTen() > listofSukien[j].layTen())
+            {
                 swap(listofSukien[i], listofSukien[j]);
             }
         }
@@ -824,15 +938,13 @@ void sapXepTheoTen(Sukien listofSukien[], int Numberofsukien) {
     cout << "Da sap xep danh sach su kien.\n";
 }
 
-
-
-
 int main()
 {
-   
+
     //Học sinh
     HocSinh *danhSachHocSinh = new HocSinh[1000];
     int soLuongHocSinh = 0;
+
     //Su kien
     Sukien *listofSukien = new Sukien[1000];
     int Numberofsukien = 0;
@@ -840,12 +952,15 @@ int main()
     //Giáo viên
     GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
     int soLuongGiaoVien = 0;
+
     //Lớp học
     LopHoc *danhSachLopHoc = new LopHoc[1000];
     int soLuongLopHoc = 0;
-    // Nhập điểm 
+
+    // Nhập điểm
     int soHocSinh= 0;
-    Diem *dsHocSinh = new Diem[10000];  
+    Diem *dsHocSinh = new Diem[10000];
+
     //Tài liệu tài nguyên
     TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen = new TaiLieuTaiNguyen[10000];
     int soLuongTaiLieuTaiNguyen = 0;
@@ -853,16 +968,15 @@ int main()
     //Phụ huynh
     PhuHuynh *danhsachPhuHuynh = new PhuHuynh[10000];
     int soLuongPhuHuynh = 0;
-
     int luaChon1;
     do
     {
         cout << "\n=== MENU CHINH ===\n";
         cout << "1. Quan ly hoc sinh\n";
         cout << "2. Quan ly giao vien\n";
-	cout << "3. Quan ly lop hoc\n";
+        cout << "3. Quan ly lop hoc\n";
         cout << "4. Quan ly diem\n";
-	cout << "5. Quan ly su kien\n";
+        cout << "5. Quan ly su kien\n";
         cout << "6. Quan ly Tai lieu tai nguyen\n";
         cout << "7. Quan ly phu huynh\n";
         cout << "8. Quan ly thong bao / Cuoc goi\n";
@@ -1067,7 +1181,7 @@ int main()
                         }
                         case 0:
                         {
-                            system("cls");//Clear screen	
+                            system("cls");//Clear screen
                             cout << "Ket thuc chuong trinh.";
                             break;
                         }
@@ -1081,7 +1195,7 @@ int main()
                 delete[] danhSachGiaoVien;
                 break;
             }
-          case 3:
+            case 3:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1167,70 +1281,79 @@ int main()
                 delete[] danhSachLopHoc;
                 break;
             }
-         case 4: {
-            int luaChon;
-            system("cls");
-            do {
-                cout << "\n=== MENU QUAN LY DIEM ==" << endl;
-                cout << "1. Nhap diem\n2. Sua Diem\n3. Hien thi bang diem\n0. Quay lai\n";
-                cout << "Nhap lua chon cua ban: ";
-                cin >> luaChon;
-                switch (luaChon) {
-                case 1: {
-                    system("cls");
-                    cout << "Nhap so luong hoc sinh: ";
-                    cin >> soHocSinh;
-                    cin.ignore();
-                    dsHocSinh = new Diem[soHocSinh];
-                    for (int i = 0; i < soHocSinh; i++) {
-                        cout << "Nhap thong tin hoc sinh thu " << i + 1 << ":\n";
-                        dsHocSinh[i].nhapDiem();
-                        cout << endl;
+            case 4:
+            {
+                int luaChon;
+                system("cls");
+                do
+                {
+                    cout << "\n=== MENU QUAN LY DIEM ==" << endl;
+                    cout << "1. Nhap diem\n2. Sua Diem\n3. Hien thi bang diem\n0. Quay lai\n";
+                    cout << "Nhap lua chon cua ban: ";
+                    cin >> luaChon;
+                    switch (luaChon)
+                    {
+                        case 1:
+                        {
+                            system("cls");
+                            cout << "Nhap so luong hoc sinh: ";
+                            cin >> soHocSinh;
+                            cin.ignore();
+                            dsHocSinh = new Diem[soHocSinh];
+                            for (int i = 0; i < soHocSinh; i++)
+                            {
+                                cout << "Nhap thong tin hoc sinh thu " << i + 1 << ":\n";
+                                dsHocSinh[i].nhapDiem();
+                                cout << endl;
+                            }
+                            break;
+                        }
+                        case 2:
+                        {
+                            int indexHocSinh;
+                            cout << "Nhap so thu tu hoc sinh can sua diem (1-" << soHocSinh << "): ";
+                            cin >> indexHocSinh;
+                            indexHocSinh--;
+                            string monSua;
+                            float diemMoi;
+                            cout << "Nhap mon hoc can sua diem: ";
+                            cin >> monSua;
+                            cout << "Nhap diem moi: ";
+                            cin >> diemMoi;
+                            dsHocSinh[indexHocSinh].suaDiem(monSua, diemMoi);
+                            break;
+                        }
+                        case 3:
+                        {
+                            cout << "Bang diem cua hoc sinh la:\n";
+                            cout << left << setw(20) << "Ho ten"
+                                 << setw(10) << "Toan"
+                                 << setw(10) << "Van"
+                                 << setw(10) << "Anh"
+                                 << setw(10) << "Diem TB"
+                                 << setw(15) << "Xep loai" << endl;
+                            for (int i = 0; i < soHocSinh; i++)
+                            {
+                                dsHocSinh[i].hienThiDiem();
+                            }
+                            break;
+                        }
+                        case 0:
+                        {
+                            system("cls");
+                            cout << "Quay lai chuong trinh.";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            break;
                     }
-                    break;
-                }
-                case 2: {
-                    int indexHocSinh;
-                    cout << "Nhap so thu tu hoc sinh can sua diem (1-" << soHocSinh << "): ";
-                    cin >> indexHocSinh;
-                    indexHocSinh--;
-                    string monSua;
-                    float diemMoi;
-                    cout << "Nhap mon hoc can sua diem: ";
-                    cin >> monSua;
-                    cout << "Nhap diem moi: ";
-                    cin >> diemMoi;
-                    dsHocSinh[indexHocSinh].suaDiem(monSua, diemMoi);
-                    break;
-                }
-                case 3: {
-                    cout << "Bang diem cua hoc sinh la:\n";
-                    cout << left << setw(20) << "Ho ten"
-                         << setw(10) << "Toan"
-                         << setw(10) << "Van"
-                         << setw(10) << "Anh"
-                         << setw(10) << "Diem TB"
-                         << setw(15) << "Xep loai" << endl;
-                    for (int i = 0; i < soHocSinh; i++) {
-                        dsHocSinh[i].hienThiDiem();
-                    }
-                    break;
-                }
-                case 0: {
-                    system("cls");
-                    cout << "Quay lai chuong trinh.";
-                    break;
-                }
-                default:
-                    cout << "Lua chon khong hop le. Vui long chon lai.";
-                    break;
-                }
-            } while (luaChon != 0);
-            // Giải phóng bộ nhớ sau khi sử dụng
+                } while (luaChon != 0);
+                // Giải phóng bộ nhớ sau khi sử dụng
                 delete[] dsHocSinh;
                 break;
-            }  
-          case 5:
+            }
+            case 5:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1316,7 +1439,7 @@ int main()
                 delete[] listofSukien;
                 break;
             }
-	    case 6:
+            case 6:
             {
                 system("cls");//Clear screen
                 int luaChon;
@@ -1599,6 +1722,4 @@ int main()
         }
     } while (luaChon1 != 0);
     return 0;
-
-    
 }
