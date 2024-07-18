@@ -685,31 +685,31 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:
+            case 1:system("cls");//Clear screen
                 them_tai_lieu();
                 break;
-            case 2:
+            case 2:system("cls");//Clear screen
                 printf("Nhap ma so tai lieu can sua: ");
                 scanf("%d", &ma_so);
                 sua_tai_lieu(ma_so);
                 break;
-            case 3:
+            case 3:system("cls");//Clear screen
                 printf("Nhap ma so tai lieu can xoa: ");
                 scanf("%d", &ma_so);
                 xoa_tai_lieu(ma_so);
                 break;
-            case 4:
+            case 4:system("cls");//Clear screen
                 hien_thi_danh_sach();
                 break;
-            case 5:
+            case 5:system("cls");//Clear screen
                 printf("Nhap ten tai lieu can tim: ");
                 scanf(" %[^\n]", ten);
                 tim_kiem_tai_lieu(ten);
                 break;
-            case 6:
+            case 6:system("cls");//Clear screen
                 sap_xep_tai_lieu();
                 break;
-            case 7:
+            case 7:system("cls");//Clear screen
                 return 0;
             default:
                 printf("Lua chon khong hop le.\n");
@@ -730,34 +730,34 @@ int main() {
         scanf("%d", &luaChon);
 
         switch (luaChon) {
-            case 1:
+            case 1:system("cls");//Clear screen
                 themLopHoc(danhSach, &soLuong);
                 break;
-            case 2:
+            case 2:system("cls");//Clear screen
                 printf("Nhap ten giao vien can sua: ");
                 scanf("%s", tenGV);
                 suaLopHoc(danhSach, soLuong, tenGV);
                 break;
-            case 3:
+            case 3:system("cls");//Clear screen
                 printf("Nhap ten giao vien can xoa: ");
                 scanf("%s", tenGV);
                 xoaLopHoc(danhSach, &soLuong, tenGV);
                 break;
-            case 4:
+            case 4:system("cls");//Clear screen
                 hienThiDanhSachLopHoc(danhSach, soLuong);
                 break;
-            case 5:
+            case 5:system("cls");//Clear screen
                 printf("Nhap ten giao vien can tim: ");
                 scanf("%s", tenGV);
                 timKiemLopHoc(danhSach, soLuong, tenGV);
                 break;
-            case 6:
+            case 6:system("cls");//Clear screen
                 sapXepTheoTen(danhSach, soLuong);
                 break;
-            case 7:
+            case 7:system("cls");//Clear screen
                 printf("Ket thuc chuong trinh.\n");
                 break;
-            default:
+            default:system("cls");//Clear screen
                 printf("Lua chon khong hop le.\n");
                 break;
         }
