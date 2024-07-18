@@ -678,7 +678,8 @@ int main()
     int soLuongLopHoc = 0;
     PhuHuynh danhsachPhuHuynh[1000];
     int soLuongPhuHuynh = 0;
-    QuanLy quanLy = { .soLuongThongBao = 0, .soLuongLienLac = 0 };
+     QuanLy quanLy = { quanLy.soLuongThongBao = 0, quanLy.soLuongLienLac = 0 };
+    char tieuDe[100], noiDung[500], tenPhuHuynh[100];
 
     do
     {
@@ -689,6 +690,7 @@ int main()
         printf("4. Quan ly tai lieu tai nguyen\n");
         printf("5. Quan ly phu huynh\n");
         printf("6. Quan ly diem\n");
+        printf("7. Quan ly thong bao \ Lien lac\n");
         printf("0. Thoat\n");
         printf("Lua chon cua ban: ");
         scanf("%d", &choice);
@@ -1106,6 +1108,73 @@ int main()
                 printf("Lua chon khong hop le. Vui long chon lai.\n");
         }
     }
+            case 7:
+         	{
+         		 system("cls");//Clear screen
+         	do
+         	{
+                int luaChon;
+                QuanLy quanLy;
+				 system("cls"); // Clear screen
+        printf("\n----- MENU QUAN LY THONG BAO VA LIEN LAC -----\n");
+        printf("1. Tao thong bao\n");
+        printf("2. Ghi nhan lien lac tu phu huynh\n");
+        printf("3. Hien thi danh sach thong bao\n");
+        printf("4. Hien thi danh sach lien lac\n");
+        printf("5. Thoat\n");
+        printf("0. Quay lai\n");
+        printf("Lua chon cua ban: ");
+        scanf("%d", &luaChon);
+        getchar(); // Đọc bỏ ký tự Enter sau khi nhập số
+        switch (luaChon) {
+            case 1:
+                system("cls"); // Clear screen
+                char tieuDe[100], noiDung[500];
+                printf("Nhap tieu de thong bao: ");
+                fgets(tieuDe, 100, stdin);
+                tieuDe[strcspn(tieuDe, "\n")] = '\0'; // Loại bỏ ký tự newline
+                printf("Nhap noi dung thong bao: ");
+                fgets(noiDung, 100, stdin);
+                noiDung[strcspn(noiDung, "\n")] = '\0'; // Loại bỏ ký tự newline
+                taoThongBao(&quanLy, tieuDe,noiDung);
+                break;
+            case 2:
+                system("cls"); // Clear screen
+                char hinhThuc[100];
+                printf("Nhap ten phu huynh: ");
+                fgets(tenPhuHuynh, 100, stdin);
+                tenPhuHuynh[strcspn(tenPhuHuynh, "\n")] = '\0'; // Loại bỏ ký tự newline
+                printf("Nhap hinh thuc (Cuoc goi/Tin nhan): ");
+                fgets(hinhThuc, 100, stdin);
+                hinhThuc[strcspn(hinhThuc, "\n")] = '\0'; // Loại bỏ ký tự newline
+                printf("Nhap noi dung: ");
+                fgets(noiDung, 100, stdin);
+                noiDung[strcspn(noiDung, "\n")] = '\0'; // Loại bỏ ký tự newline
+                ghiNhanLienLac(&quanLy,tenPhuHuynh, hinhThuc, noiDung);
+                break;
+            case 3:
+                system("cls"); // Clear screen
+                hienThiThongBao(&quanLy);
+                break;
+            case 4:
+                system("cls"); // Clear screen
+                hienThiLienLac(&quanLy);
+                break;
+            case 5:
+                system("cls"); // Clear screen
+                printf("Thoat chuong trinh.\n");
+                break;
+            case 0:
+                system("cls"); // Clear screen
+                printf("Quay lai menu chinh.\n");
+                break;
+            default:
+                printf("Lua chon khong hop le, vui long chon lai.\n");
+                break;
+        }
+        
+    } while (Choice != 0);
+ }
 
 
             
