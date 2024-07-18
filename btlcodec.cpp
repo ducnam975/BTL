@@ -690,7 +690,7 @@ int main()
         printf("4. Quan ly tai lieu tai nguyen\n");
         printf("5. Quan ly phu huynh\n");
         printf("6. Quan ly diem\n");
-        printf("7. Quan ly thong bao /lien lac\n");
+        printf("7. Quan ly thong bao / Lien lac\n");
         printf("0. Thoat\n");
         printf("Lua chon cua ban: ");
         scanf("%d", &choice);
