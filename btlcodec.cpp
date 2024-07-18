@@ -718,7 +718,7 @@ int main() {
     
     case 3:
     	do {
-        printf("\nCHUONG TRINH QUAN LY LOP HOC\n");
+        printf("\ QUAN LY LOP HOC\n");
         printf("1. Them lop hoc\n");
         printf("2. Sua thong tin lop hoc\n");
         printf("3. Xoa lop hoc\n");
