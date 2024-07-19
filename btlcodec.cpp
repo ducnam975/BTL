@@ -668,8 +668,8 @@ void hienThiLienLac(QuanLy *quanLy)
 
 typedef struct
 {
-    char NgaySuKien[20];
-    char TenSuKien[20];
+    char NgaySuKien[50];
+    char TenSuKien[50];
 } Sukien;
 
 // Hàm hiển thị thông tin sự kiện
