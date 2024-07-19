@@ -299,6 +299,8 @@ int timKiemTaiLieuTaiNguyen(const TaiLieuTaiNguyen danhsach[], int soLuong, int 
     }
     return -1; // Trả về -1 nếu không tìm thấy
 }
+
+//Hàm sắp xếp tài liệu
 void sapXepDanhsachTaiLieuTaiNguyen(TaiLieuTaiNguyen danhsach[], int soLuong)
 {
     for (int i = 0; i < soLuong - 1; ++i)
@@ -398,7 +400,7 @@ void suaLopHoc(LopHoc danhSachLopHoc[], int soLuongLopHoc, const string& tenCanS
 {
     for (int i = 0; i < soLuongLopHoc; ++i)
     {
-        if (danhSachLopHoc[i].layTen() == tenCanSua)
+        if (danhSachLopHoc[i].layMa() == tenCanSua)
         {
             string maMoi,tenMoi;
             cout << "Nhap ma moi cho lop hoc: ";
@@ -420,7 +422,7 @@ void xoaLopHoc(LopHoc danhSachLopHoc[], int& soLuongLopHoc, const string& tenCan
     int viTriXoa = -1;
     for (int i = 0; i < soLuongLopHoc; ++i)
     {
-        if (danhSachLopHoc[i].layTen() == tenCanXoa)
+        if (danhSachLopHoc[i].layMa() == tenCanXoa)
         {
             viTriXoa = i;
             break;
@@ -448,7 +450,7 @@ void timKiemLopHoc(const LopHoc danhSachLopHoc[], int soLuongLopHoc, const strin
     cout << "Ket qua tim kiem:\n";
     for (int i = 0; i < soLuongLopHoc; ++i)
     {
-        if (danhSachLopHoc[i].layTen() == tenCanTim)
+        if (danhSachLopHoc[i].layMa() == tenCanTim)
         {
             danhSachLopHoc[i].hienThiThongTin();
             timThay = true;
@@ -467,7 +469,7 @@ void sapXepTheoTen(LopHoc danhSachLopHoc[], int soLuongLopHoc)
     {
         for (int j = i + 1; j < soLuongLopHoc; ++j)
         {
-            if (danhSachLopHoc[i].layTen() > danhSachLopHoc[j].layTen())
+            if (danhSachLopHoc[i].layMa() > danhSachLopHoc[j].layMa())
             {
                 swap(danhSachLopHoc[i], danhSachLopHoc[j]);
             }
@@ -860,10 +862,10 @@ void suaSukien(Sukien listofSukien[], int Numberofsukien, const string& tenCanSu
 {
     for (int i = 0; i < Numberofsukien; ++i)
     {
-        if (listofSukien[i].layTen() == tenCanSua)
+        if (listofSukien[i].layMa() == tenCanSua)
         {
             string maMoi,tenMoi;
-            cout << "Nhap ma moi cho su kien: ";
+            cout << "Nhap ngay moi cho su kien: ";
             cin >> maMoi;
             cout << "Nhap ten moi cho su kien: ";
             cin >> tenMoi;
@@ -882,7 +884,7 @@ void xoaSukien(Sukien listofSukien[], int& Numberofsukien, const string& tenCanX
     int viTriXoa = -1;
     for (int i = 0; i < Numberofsukien; ++i)
     {
-        if (listofSukien[i].layTen() == tenCanXoa)
+        if (listofSukien[i].layMa() == tenCanXoa)
         {
             viTriXoa = i;
             break;
@@ -903,14 +905,14 @@ void xoaSukien(Sukien listofSukien[], int& Numberofsukien, const string& tenCanX
     }
 }
 
-// Hàm tìm kiếm lớp học trong danh sách
+// Hàm tìm kiếm sự kiện trong danh sách
 void timKiemSukien(const Sukien listofSukien[], int Numberofsukien, const string& tenCanTim)
 {
     bool timThay = false;
     cout << "Ket qua tim kiem:\n";
     for (int i = 0; i < Numberofsukien; ++i)
     {
-        if (listofSukien[i].layTen() == tenCanTim)
+        if (listofSukien[i].layMa() == tenCanTim)
         {
             listofSukien[i].hienThiThongTin();
             timThay = true;
@@ -945,10 +947,6 @@ int main()
     HocSinh *danhSachHocSinh = new HocSinh[1000];
     int soLuongHocSinh = 0;
 
-    //Su kien
-    Sukien *listofSukien = new Sukien[1000];
-    int Numberofsukien = 0;
-
     //Giáo viên
     GiaoVien *danhSachGiaoVien = new GiaoVien[1000];
     int soLuongGiaoVien = 0;
@@ -960,6 +958,10 @@ int main()
     // Nhập điểm
     int soHocSinh= 0;
     Diem *dsHocSinh = new Diem[10000];
+
+        //Su kien
+    Sukien *listofSukien = new Sukien[1000];
+    int Numberofsukien = 0;
 
     //Tài liệu tài nguyên
     TaiLieuTaiNguyen *danhsachTaiLieuTaiNguyen = new TaiLieuTaiNguyen[10000];
@@ -999,7 +1001,7 @@ int main()
                     cout << "3. Xoa hoc sinh.\n";
                     cout << "4. Tim kiem hoc sinh.\n";
                     cout << "5. Sap xep danh sach hoc sinh.\n";
-                    cout << "0. Quay lại menu chinh.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1402,7 +1404,7 @@ int main()
                         {
                             system("cls");//Clear screen
                             string tenCanSua;
-                            cout << "Nhap Ngay dien ra su kien can sua: ";
+                            cout << "Nhap ngay dien ra su kien can sua: ";
                             cin >> tenCanSua;
                             suaSukien(listofSukien, Numberofsukien, tenCanSua);
                             break;
@@ -1411,7 +1413,7 @@ int main()
                         {
                             system("cls");//Clear screen
                             string tenCanXoa;
-                            cout << "Nhap Ngay dien ra su kien can xoa: ";
+                            cout << "Nhap ngay dien ra su kien can xoa: ";
                             cin >> tenCanXoa;
                             xoaSukien(listofSukien, Numberofsukien, tenCanXoa);
                             break;
@@ -1420,7 +1422,7 @@ int main()
                         {
                             system("cls");//Clear screen
                             string tenCanTim;
-                            cout << "Nhap Ngay dien ra su kien can tim: ";
+                            cout << "Nhap ngay dien ra su kien can tim: ";
                             cin >> tenCanTim;
                             timKiemSukien(listofSukien, Numberofsukien, tenCanTim);
                             break;
