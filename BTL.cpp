@@ -973,7 +973,7 @@ int main()
     int luaChon1;
     do
     {
-        cout << "\n=== MENU CHINH ===\n";
+        cout << "\n=== MENU CHINH ===\n" << endl;
         cout << "1. Quan ly hoc sinh.\n";
         cout << "2. Quan ly giao vien.\n";
         cout << "3. Quan ly lop hoc.\n";
@@ -1121,7 +1121,7 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== QUAN LY GIAO VIEN ===\n";
+                    cout << "\n=== QUAN LY GIAO VIEN ===\n" << endl;
                     cout << "1. Them moi giao vien.\n";
                     cout << "2. Hien thi danh sach giao vien.\n";
                     cout << "3. Sua thong tin giao vien.\n";
@@ -1208,7 +1208,7 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== QUAN LY LOP HOC ===\n";
+                    cout << "\n=== QUAN LY LOP HOC ===\n" << endl;
                     cout << "1. Them moi lop hoc.\n";
                     cout << "2. Hien thi danh sach lop hoc.\n";
                     cout << "3. Sua thong tin lop hoc.\n";
@@ -1369,7 +1369,7 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== QUAN LY SU KIEN ===\n";
+                    cout << "\n=== QUAN LY SU KIEN ===\n" << endl;
                     cout << "1. Them moi su kien.\n";
                     cout << "2. Hien thi danh sach su kien.\n";
                     cout << "3. Sua thong tin su kien.\n";
@@ -1455,7 +1455,7 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== QUAN LY TAI LIEU TAI NGUYEN ===\n";
+                    cout << "\n=== QUAN LY TAI LIEU TAI NGUYEN ===\n" << endl;
                     cout << "1. Them tai lieu tai nguyen.\n";
                     cout << "2. Sua thong tin tai lieu tai nguyen.\n";
                     cout << "3. Xoa tai lieu tai nguyen.\n";
@@ -1583,7 +1583,7 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== QUAN LY PHU HUYNH ===\n";
+                    cout << "\n=== QUAN LY PHU HUYNH ===\n" << endl;
                     cout << "1. Them moi phu huynh.\n";
                     cout << "2. Hien thi danh sach phu huynh.\n";
                     cout << "3. Xoa phu huynh.\n";
@@ -1653,7 +1653,7 @@ int main()
                 QuanLy quanLy;
                 do
                 {
-                    cout << "\n=== QUAN LY THONG BAO VA LIEN LAC ===\n";
+                    cout << "\n=== QUAN LY THONG BAO VA LIEN LAC ===\n" << endl;
                     cout << "1. Tao thong bao.\n";
                     cout << "2. Ghi nhan lien lac tu phu huynh.\n";
                     cout << "3. Hien thi danh sach thong bao.\n";
