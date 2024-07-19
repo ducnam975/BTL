@@ -817,7 +817,7 @@ int main()
         printf("7. Quan ly phu huynh.\n");
         printf("8. Quan ly thong bao / Lien lac.\n");;
         printf("0. Thoat.\n");
-        printf("Lua chon cua ban: ");
+        printf("Nhap lua chon cua ban: ");
         scanf("%d", &choice);
         if (choice == 0)
         {
@@ -836,7 +836,7 @@ int main()
                     printf("3. Tim kiem hoc sinh.\n");
                     printf("4. Sap xep danh sach hoc sinh.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     switch (Choice)
                     {
@@ -918,7 +918,7 @@ int main()
                     printf("5. Tim kiem giao vien.\n");
                     printf("6. Sap xep giao vien theo ten.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     switch (Choice)
                     {
@@ -994,7 +994,7 @@ int main()
                     printf("5. Tim kiem lop hoc.\n");
                     printf("6. Sap xep lop hoc theo ten.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     switch (Choice)
                     {
@@ -1066,7 +1066,7 @@ int main()
                     printf("2. Hien thi diem hoc sinh.\n");
                     printf("3. Sua diem hoc sinh.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     getchar(); // Loai bo ky tu xuong dong
                     switch (Choice)
@@ -1124,7 +1124,7 @@ int main()
                     printf("5. Tim kiem su kien.\n");
                     printf("6. Sap xep danh sach su kien theo ten.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     switch (Choice)
                     {
@@ -1197,7 +1197,7 @@ int main()
                     printf("5. Tim kiem tai lieu.\n");
                     printf("6. Sap xep tai lieu.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     switch (Choice)
                     {
@@ -1269,7 +1269,7 @@ int main()
                     printf("4. Tim kiem phu huynh.\n");
                     printf("5. Sap xep danh sach phu huynh theo ten.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     getchar(); // Loại bỏ ký tự xuống dòng sau khi nhập số
                     switch (Choice)
@@ -1338,7 +1338,7 @@ int main()
                     printf("3. Hien thi danh sach thong bao.\n");
                     printf("4. Hien thi danh sach lien lac.\n");
                     printf("0. Quay lai menu chinh.\n");
-                    printf("Lua chon cua ban: ");
+                    printf("Nhap lua chon cua ban: ");
                     scanf("%d", &Choice);
                     getchar(); // Đọc bỏ ký tự Enter sau khi nhập số
                     switch (Choice)
