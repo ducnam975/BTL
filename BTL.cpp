@@ -972,15 +972,15 @@ int main()
     do
     {
         cout << "\n=== MENU CHINH ===\n";
-        cout << "1. Quan ly hoc sinh\n";
-        cout << "2. Quan ly giao vien\n";
-        cout << "3. Quan ly lop hoc\n";
-        cout << "4. Quan ly diem\n";
-        cout << "5. Quan ly su kien\n";
-        cout << "6. Quan ly Tai lieu tai nguyen\n";
-        cout << "7. Quan ly phu huynh\n";
-        cout << "8. Quan ly thong bao / Cuoc goi\n";
-        cout << "0. Thoat\n";
+        cout << "1. Quan ly hoc sinh.\n";
+        cout << "2. Quan ly giao vien.\n";
+        cout << "3. Quan ly lop hoc.\n";
+        cout << "4. Quan ly diem.\n";
+        cout << "5. Quan ly su kien.\n";
+        cout << "6. Quan ly Tai lieu tai nguyen.\n";
+        cout << "7. Quan ly phu huynh.\n";
+        cout << "8. Quan ly thong bao / Cuoc goi.\n";
+        cout << "0. Thoat.\n";
         cout << "Nhap lua chon cua ban: ";
         cin >> luaChon1;
 
@@ -993,8 +993,13 @@ int main()
                 system("cls");//Clear screen
                 do
                 {
-                    cout<<"\n=== MENU QUAN LY HOC SINH =="<<endl;
-                    cout << "1. Them Hoc Sinh\n2. Sua Thong Tin Hoc Sinh\n3. Xoa Hoc Sinh\n4. Tim Kiem Hoc Sinh\n5. Sap Xep Danh Sach Hoc Sinh\n0. Quay lai\n";
+                    cout<<"\n=== QUAN LY HOC SINH ===\n"<<endl;
+                    cout << "1. Them hoc sinh.\n";
+                    cout << "2. Sua thong tin Hoc Sinh.\n";
+                    cout << "3. Xoa hoc sinh.\n";
+                    cout << "4. Tim kiem hoc sinh.\n";
+                    cout << "5. Sap xep danh sach hoc sinh.\n";
+                    cout << "0. Quay lại menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1095,11 +1100,11 @@ int main()
                         case 0:
                         {
                             system("cls");//Clear screen
-                            cout << "Ket thuc chuong trinh.";
+                            cout << "Quay lai menu chinh.\n";
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            cout << "Lua chon khong hop le, vui long chon lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1114,14 +1119,14 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== MENU QUAN LY GIAO VIEN ===\n";
-                    cout << "1. Them moi giao vien\n";
-                    cout << "2. Hien thi danh sach giao vien\n";
-                    cout << "3. Sua thong tin giao vien\n";
-                    cout << "4. Xoa giao vien\n";
-                    cout << "5. Tim kiem giao vien\n";
-                    cout << "6. Sap xep danh sach giao vien theo ten\n";
-                    cout << "0. Quay lai\n";
+                    cout << "\n=== QUAN LY GIAO VIEN ===\n";
+                    cout << "1. Them moi giao vien.\n";
+                    cout << "2. Hien thi danh sach giao vien.\n";
+                    cout << "3. Sua thong tin giao vien.\n";
+                    cout << "4. Xoa giao vien.\n";
+                    cout << "5. Tim kiem giao vien.\n";
+                    cout << "6. Sap xep danh sach giao vien theo ten.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1182,11 +1187,11 @@ int main()
                         case 0:
                         {
                             system("cls");//Clear screen
-                            cout << "Ket thuc chuong trinh.";
+                            cout << "Quay lai menu chinh.\n";
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            cout << "Lua chon khong hop le, vui long chon lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1201,14 +1206,14 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== MENU QUAN LY LOP HOC ===\n";
-                    cout << "1. Them moi lop hoc\n";
-                    cout << "2. Hien thi danh sach lop hoc\n";
-                    cout << "3. Sua thong tin lop hoc\n";
-                    cout << "4. Xoa lop hoc\n";
-                    cout << "5. Tim kiem lop hoc\n";
-                    cout << "6. Sap xep danh sach lop hoc\n";
-                    cout << "0. Quay lai\n";
+                    cout << "\n=== QUAN LY LOP HOC ===\n";
+                    cout << "1. Them moi lop hoc.\n";
+                    cout << "2. Hien thi danh sach lop hoc.\n";
+                    cout << "3. Sua thong tin lop hoc.\n";
+                    cout << "4. Xoa lop hoc.\n";
+                    cout << "5. Tim kiem lop hoc.\n";
+                    cout << "6. Sap xep danh sach lop hoc.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1273,7 +1278,7 @@ int main()
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.\n";
+                            cout << "Lua chon khong hop le, vui long chon lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1287,8 +1292,11 @@ int main()
                 system("cls");
                 do
                 {
-                    cout << "\n=== MENU QUAN LY DIEM ==" << endl;
-                    cout << "1. Nhap diem\n2. Sua Diem\n3. Hien thi bang diem\n0. Quay lai\n";
+                    cout << "\n=== QUAN LY DIEM ===\n" << endl;
+                    cout << "1. Nhap diem.\n";
+                    cout << "2. Sua diem.\n";
+                    cout << "3. Hien thi bang diem.\n";
+                    cout << "4. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1341,11 +1349,11 @@ int main()
                         case 0:
                         {
                             system("cls");
-                            cout << "Quay lai chuong trinh.";
+                            cout << "Quay lai menu chinh.\n";
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.";
+                            cout << "Lua chon khong hop le, vui long chon lai.";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1359,14 +1367,14 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== MENU QUAN LY su kien ===\n";
-                    cout << "1. Them moi su kien\n";
-                    cout << "2. Hien thi danh sach su kien\n";
-                    cout << "3. Sua thong tin su kien\n";
-                    cout << "4. Xoa su kien\n";
-                    cout << "5. Tim kiem su kien\n";
-                    cout << "6. Sap xep danh sach su kien\n";
-                    cout << "0. Quay lai\n";
+                    cout << "\n=== QUAN LY SU KIEN ===\n";
+                    cout << "1. Them moi su kien.\n";
+                    cout << "2. Hien thi danh sach su kien.\n";
+                    cout << "3. Sua thong tin su kien.\n";
+                    cout << "4. Xoa su kien.\n";
+                    cout << "5. Tim kiem su kien.\n";
+                    cout << "6. Sap xep danh sach su kien.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1431,7 +1439,7 @@ int main()
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.\n";
+                            cout << "Lua chon khong hop le, vui long chon lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1445,13 +1453,13 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== MENU QUAN LY TAI LIEU TAI NGUYEN ===\n";
-                    cout << "1. Them Tai Lieu Tai Nguyen\n";
-                    cout << "2. Sua Thong Tin Tai Lieu Tai Nguyen\n";
-                    cout << "3. Xoa Tai Lieu Tai Nguyen\n";
-                    cout << "4. Tim Kiem Tai Lieu Tai Nguyen\n";
-                    cout << "5. Sap Xep Danh Sach Tai Lieu Tai Nguyen\n";
-                    cout << "0. Quay lai\n";
+                    cout << "\n=== QUAN LY TAI LIEU TAI NGUYEN ===\n";
+                    cout << "1. Them tai lieu tai nguyen.\n";
+                    cout << "2. Sua thong tin tai lieu tai nguyen.\n";
+                    cout << "3. Xoa tai lieu tai nguyen.\n";
+                    cout << "4. Tim kiem tai lieu tai nguyen.\n";
+                    cout << "5. Sap xep danh sach tai lieu tai nguyen.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1559,7 +1567,7 @@ int main()
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long chon lai.\n";
+                            cout << "Lua chon khong hop le, vui long chon lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1573,13 +1581,13 @@ int main()
                 int luaChon;
                 do
                 {
-                    cout << "\n=== MENU QUAN LY PHU HUYNH ===\n";
-                    cout << "1. Them moi phu huynh\n";
-                    cout << "2. Hien thi danh sach phu huynh\n";
-                    cout << "3. Xoa phu huynh\n";
-                    cout << "4. Tim kiem phu huynh\n";
-                    cout << "5. Sap xep danh sach phu huynh theo ten\n";
-                    cout << "0. Quay lai\n";
+                    cout << "\n=== QUAN LY PHU HUYNH ===\n";
+                    cout << "1. Them moi phu huynh.\n";
+                    cout << "2. Hien thi danh sach phu huynh.\n";
+                    cout << "3. Xoa phu huynh.\n";
+                    cout << "4. Tim kiem phu huynh.\n";
+                    cout << "5. Sap xep danh sach phu huynh theo ten.\n";
+                    cout << "0. Quay lai menu chinh.\n";
                     cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     switch (luaChon)
@@ -1629,7 +1637,7 @@ int main()
                             break;
                         }
                         default:
-                            cout << "Lua chon khong hop le. Vui long nhap lai.\n";
+                            cout << "Lua chon khong hop le, vui long nhap lai.\n";
                             break;
                     }
                 } while (luaChon != 0);
@@ -1643,14 +1651,13 @@ int main()
                 QuanLy quanLy;
                 do
                 {
-                    cout << "\n----- MENU QUAN LY THONG BAO VA LIEN LAC -----\n";
-                    cout << "1. Tao thong bao\n";
-                    cout << "2. Ghi nhan lien lac tu phu huynh\n";
-                    cout << "3. Hien thi danh sach thong bao\n";
-                    cout << "4. Hien thi danh sach lien lac\n";
-                    cout << "5. Thoat\n";
-                    cout << "0. Quay lai\n";
-                    cout << "Lua chon cua ban: ";
+                    cout << "\n=== QUAN LY THONG BAO VA LIEN LAC ===\n";
+                    cout << "1. Tao thong bao.\n";
+                    cout << "2. Ghi nhan lien lac tu phu huynh.\n";
+                    cout << "3. Hien thi danh sach thong bao.\n";
+                    cout << "4. Hien thi danh sach lien lac.\n";
+                    cout << "0. Quay lai menu chinh.\n";
+                    cout << "Nhap lua chon cua ban: ";
                     cin >> luaChon;
                     cin.ignore();
                     switch (luaChon)
@@ -1689,12 +1696,6 @@ int main()
                         {
                             system("cls");//Clear screen
                             quanLy.hienThiLienLac();
-                            break;
-                        }
-                        case 5:
-                        {
-                            system("cls");//Clear screen
-                            cout << "Thoat chuong trinh.\n";
                             break;
                         }
                         case 0:
