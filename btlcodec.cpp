@@ -683,12 +683,11 @@ void themSukien(Sukien listofSukien[], int* soSuKien)
 {
     if (*soSuKien < 1000)
     {
-        Sukien suKienMoi;
         printf("Nhap Ngay dien ra su kien (dd/mm/yyyy): ");
-        scanf("%s", suKienMoi.NgaySuKien);
+        scanf("%s", listofSukien[*soSuKien].NgaySuKien);
         printf("Nhap ten cua su kien: ");
-        scanf("%s", suKienMoi.TenSuKien);
-        listofSukien[(*soSuKien)++] = suKienMoi;
+        scanf("%s", listofSukien[*soSuKien].TenSuKien);
+        (*soSuKien)++;
     }
     else
     {
@@ -794,17 +793,19 @@ void sapXepTheoTen(Sukien listofSukien[], int soSuKien)
 int main()
 {
     HocSinh danhSachHocSinh[1000];
-    GiaoVien danhSachGiaoVien[1000];
     int soLuongHocSinh = 0;
+    GiaoVien danhSachGiaoVien[1000];
     int soLuongGiaoVien = 0;
-    int choice, Choice;
-    TaiNguyenTaiLieu tai_lieu[1000];
-    int so_luong = 0;
     LopHoc danhSachLopHoc[1000];
     int soLuongLopHoc = 0;
+    Sukien listofSukien[1000];
+    int soSuKien = 0;
+    TaiNguyenTaiLieu tai_lieu[1000];
+    int so_luong = 0;
     PhuHuynh danhsachPhuHuynh[1000];
     int soLuongPhuHuynh = 0;
     char tieuDe[100], noiDung[500], tenPhuHuynh[100];
+    int choice, Choice;
     do
     {
         printf("\n=== MENU CHINH ===\n");
@@ -1113,8 +1114,6 @@ int main()
                 system("cls");//Clear screen
                 do
                 {
-                    Sukien danhSachSukien[1000];
-                    int soSuKien = 0;
                     char tenCanTim[1000];
                     printf("\n=== QUAN LY SU KIEN ===:\n");
                     printf("1. Them su kien.\n");
@@ -1131,13 +1130,13 @@ int main()
                         case 1:
                         {
                             system("cls");//Clear screen
-                            themSukien(danhSachSukien, &soSuKien);
+                            themSukien(listofSukien, &soSuKien);
                             break;
                         }
                         case 2:
                         {
                             system("cls");//Clear screen
-                            hienThiDanhSachSuKien(danhSachSukien, soSuKien);
+                            hienThiDanhSachSuKien(listofSukien, soSuKien);
                             break;
                         }
                         case 3:
@@ -1145,7 +1144,7 @@ int main()
                             system("cls");//Clear screen
                             printf("Nhap ten su kien can sua: ");
                             scanf("%s", tenCanTim);
-                            suaSukien(danhSachSukien, soSuKien, tenCanTim);
+                            suaSukien(listofSukien, soSuKien, tenCanTim);
                             break;
                         }
                         case 4:
@@ -1153,7 +1152,7 @@ int main()
                             system("cls");//Clear screen
                             printf("Nhap ten su kien can xoa: ");
                             scanf("%s", tenCanTim);
-                            xoaSukien(danhSachSukien, &soSuKien, tenCanTim);
+                            xoaSukien(listofSukien, &soSuKien, tenCanTim);
                             break;
                         }
                         case 5:
@@ -1161,13 +1160,13 @@ int main()
                             system("cls");//Clear screen
                             printf("Nhap ten su kien can tim: ");
                             scanf("%s", tenCanTim);
-                            timKiemSukien(danhSachSukien, soSuKien, tenCanTim);
+                            timKiemSukien(listofSukien, soSuKien, tenCanTim);
                             break;
                         }
                         case 6:
                         {
                             system("cls");//Clear screen
-                            sapXepTheoTen(danhSachSukien, soSuKien);
+                            sapXepTheoTen(listofSukien, soSuKien);
                             break;
                         }
                         case 0:
